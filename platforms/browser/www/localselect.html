@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" href="swiper/swiper-bundle.min.css"> 
+    <title>Teste</title>
+</head>
+<body class="bgmap">
+    <div class="page row-center">
+        <div class="header padding" style="animation: inicio .3s;">
+            <div class="left" style="margin-left:30px;">
+                <div class="row vertical-align-center">
+                    <div class="col" style="margin-right:12px;">
+                        <button class="icon ion-android-arrow-back" onclick="window.location.href = 'inapp.html'"></button>
+                    </div>                 
+                </div>                
+            </div>           
+        </div>     
+        <div class="col localbg padding">            
+            <div class="col text-black white localsearchbg">
+                <div class="localbar white">
+                    <input class="localsearchbar" type="text" title="Search" placeholder="St. Location Example">
+                    <img class="localvoice" src="img/iconmic.png" title="Search by Voice">
+                </div>
+            </div>
+            <div class="col">
+                <div class="swiper-container mySwiper">
+                    <div class="swiper-wrapper">
+                        <div class="swiper-slide">
+                            <div class="opcao-1" onclick="window.location.href = 'localconfirm.html'">
+                                <h3 class="row text-white padding" style="margin-left: 10px;font-family: 'Open Sans', sans-serif;font-size:14px">
+                                    muvMax
+                                </h3>
+                                <img class="iconoption" src="img/iconmuvMax.png">
+                                <div class="row vertical-align-center">
+                                    <div class="col">
+                                        <img class="iconrating" src="img/iconrating.png">
+                                        <img class="iconrating" src="img/iconrating.png">
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="row horizontal-align-right text-white padding" style="font-family: 'Open Sans', sans-serif;font-size:14px">
+                                            $15.00
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="opcao-2" onclick="window.location.href = 'localconfirm.html'">
+                                <h3 class="row text-white padding" style="margin-left: 10px;font-family: 'Open Sans', sans-serif;font-size:14px">
+                                    muvX
+                                </h3>
+                                <img class="iconoption" src="img/iconmuvX.png">
+                                <div class="row vertical-align-center">
+                                    <div class="col">
+                                        <img class="iconrating" src="img/iconrating.png">
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="row horizontal-align-right text-white padding" style="font-family: 'Open Sans', sans-serif;font-size:14px">
+                                            $10.00
+                                        </h3>
+                                    </div>
+                                </div>                                
+                            </div>
+                        </div>
+                        <div class="swiper-slide">
+                            <div class="opcao-3" onclick="window.location.href = 'localconfirm.html'">
+                                <h3 class="row text-white padding" style="margin-left: 10px;font-family: 'Open Sans', sans-serif;font-size:14px">
+                                    muvNav
+                                </h3>
+                                <img class="iconoption" src="img/iconmuvNav.png">
+                                <div class="row vertical-align-center">
+                                    <div class="col">
+                                        <img class="iconrating" src="img/iconrating.png">
+                                        <img class="iconrating" src="img/iconrating.png">
+                                        <img class="iconrating" src="img/iconrating.png">
+                                    </div>
+                                    <div class="col">
+                                        <h3 class="row horizontal-align-right text-white padding" style="font-family: 'Open Sans', sans-serif;font-size:14px">
+                                            $20.00
+                                        </h3>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>       
+        </div>
+    </div>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script src="https://unpkg.com/swiper/swiper-bundle.min.js"></script>
+    <script>
+        var swiper = new Swiper(".mySwiper", {
+          slidesPerView: 2,
+          loop: false,
+          spaceBetween: 50,
+          centeredSlides: true          
+        });
+    </script>
+</body>
+
+</html>

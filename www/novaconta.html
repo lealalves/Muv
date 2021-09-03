@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<!--
+    Copyright (c) 2012-2016 Adobe Systems Incorporated. All rights reserved.
+
+    Licensed to the Apache Software Foundation (ASF) under one
+    or more contributor license agreements.  See the NOTICE file
+    distributed with this work for additional information
+    regarding copyright ownership.  The ASF licenses this file
+    to you under the Apache License, Version 2.0 (the
+    "License"); you may not use this file except in compliance
+    with the License.  You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+    Unless required by applicable law or agreed to in writing,
+    software distributed under the License is distributed on an
+    "AS IS" BASIS, WITHOUT WARRANTIES OR CONDITIONS OF ANY
+     KIND, either express or implied.  See the License for the
+    specific language governing permissions and limitations
+    under the License.
+-->
+<html>
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <!-- Good default declaration:
+    * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
+    * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
+    * Disables use of eval() and inline scripts in order to mitigate risk of XSS vulnerabilities. To change this:
+        * Enable inline JS: add 'unsafe-inline' to default-src
+        * Enable eval(): add 'unsafe-eval' to default-src
+    * Create your own at http://cspisawesome.com
+    -->
+    <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <script src="js/jquery.js"></script>
+    <script defer src="js/all.js"></script>
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
+    <script>
+        function cadastrar() {
+            var email = $('#email').val();
+            var senha = $('#password').val();
+            var telefone = $('#phonenumber').val();
+            var string = `email=${email}&senha=${senha}&telefone=${telefone}&insert=`;
+
+            if ($.trim(email).length > 0 & $.trim(senha).length > 0 & $.trim(telefone).length > 0) {
+                $.ajax({
+                    type: "POST",
+                    url: "http://localhost/phonegap/muv/cadastrar.php",
+                    data: string,
+                    crossDomain: true,
+                    cache: false,
+                    success: function(data) {
+                        if($.trim(data) == 'success') {                            
+                                window.location.href = 'especificacao.html'
+                            }else{
+                                console.log("burro")
+                            }
+                        }
+                    });                
+                }else{
+                    $(".inputlogin").addClass("error");
+                }        
+            }
+    </script>
+    <title>Teste</title>
+</head>
+
+<body>
+    <div class="content row-center align-center transicao bg">
+        <div class="col marginlogin" style="margin-top: 10vh;">
+            <h1 class="row horizontal-align-center text-white"
+                style="font-family: 'Open Sans', sans-serif;font-size:25px">
+                Create an account
+            </h1>
+            <div class="space"></div>
+            <!-- input email -->
+            <div class="row horizontal-align-center">
+                <div class="row">
+                    <input type="text" id="email" class="inputlogin" placeholder="E-mail">
+                </div>
+            </div>
+            <div class="space"></div>
+            <!-- input senha -->
+            <div class="row horizontal-align-center">
+                <div class="row">
+                    <input type="password" id="password" class="inputlogin" placeholder="Password">
+                </div>
+            </div>
+            <div class="space"></div>
+            <!-- input telefone -->
+            <div class="row horizontal-align-center">
+                <div class="row">
+                    <input type="number" id="phonenumber" class="inputlogin" placeholder="Phone number">
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <!-- botao cadastrar  -->
+            <button id="cadastrar" class="btnlogin btnnext" onclick="cadastrar()">Next</button>
+            <div class="space"></div>
+            <div class="row">
+                <div class="col">
+                    <h4 class="text-white" style="font-size:13px">already have an account?</h4>
+                </div>
+            </div>
+            <div class="row" style="margin-top: 10px;">
+                <div class="col">
+                    <!-- conta criada -->
+                    <a href="contacriada.html">
+                        <h4 class="text-blue" style="font-size:13px">Login in</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="logo">
+                <img class="imgmuvlogo" src="img/foguetinho.png">                      
+                <h4 class="muvtextlogo">muv</h4>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script>
+
+    </script>
+</body>
+
+</html>

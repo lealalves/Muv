@@ -1,0 +1,40 @@
+{
+    "prepare_queue": {
+        "installed": [],
+        "uninstalled": []
+    },
+    "config_munge": {
+        "files": {}
+    },
+    "installed_plugins": {
+        "cordova-plugin-battery-status": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-camera": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-media-capture": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-device": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-dialogs": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-geolocation": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-globalization": {
+            "PACKAGE_NAME": "com.muvuser"
+        }
+    },
+    "dependent_plugins": {
+        "cordova-plugin-compat": {
+            "PACKAGE_NAME": "com.muvuser"
+        },
+        "cordova-plugin-file": {
+            "PACKAGE_NAME": "com.muvuser"
+        }
+    }
+}
