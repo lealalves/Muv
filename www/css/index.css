@@ -690,7 +690,8 @@ input[type=radio]{
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px 10px 0px 0px;
     width: 100vw;
-    height: 100vh;    
+    height: 100vh;
+    overflow-x: hidden;    
     animation: useroptionsaparecer .5s forwards;
 }
 @keyframes useroptionsaparecer {
@@ -731,7 +732,7 @@ input[type=radio]{
 }
 .chat{
     flex-direction: column;
-    margin: 30px auto
+    margin-top: 30px;
 }
 .friend{
     align-items: flex-start;
@@ -750,7 +751,7 @@ input[type=radio]{
     padding: 5px;
 }
 .historico{
-    margin: 100px auto;
+    margin-top: 100px;
     flex-direction: column;
 }
 .historicdata{
@@ -789,4 +790,11 @@ input[type=radio]{
     border-radius: 10px;
     color: white;
     margin: 10px auto;
+}
+.container-menu{
+    transform: translateX(0%);
+    transition: 300ms ease;    
+}
+.container-menu.movetohistoric{
+    transform: translateX(-50%);   
 }
