@@ -335,9 +335,6 @@
     border-radius: 10px;
     width: 300px;
 }
-.optionsavatar{
-    width: 40px;
-}
 /* botao que desliza la no menu :D */
 /* The switch - the box around the slider */
 .switch {
@@ -692,7 +689,7 @@ input[type=radio]{
 :checked + label{
     color:#fff
 }
-label{
+.optionstxt{
     color:#4B5C7E;
 }
 .useroptionsbg{
@@ -700,29 +697,62 @@ label{
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px 10px 0px 0px;
     width: 100vw;
-    height: 100vh;
+    height: 100vh;    
     animation: useroptionsaparecer .5s forwards;
 }
-.optionsheaderleft{
+@keyframes useroptionsaparecer {
+    0%{
+        transform: translateY(110%);
+    }
+    100%{
+        transform: translateY(15%);
+    }
+}
+.optionsavatar{
+    border: 2px solid #22FFAF;
+    border-radius: 50%;
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
+}
+.optionsheader{
     align-items: center;
+    padding: 50px 50px 0px 50px;
+    justify-content: space-between;
 }
 .userlevel{
     color: white;
     flex-direction: column;
+}
+.divisoriaopt{
+    height:15px;
+    width: 2px;
+    background: #4B5C7E;
+}
+.divisoriafriend{   
+    height: 1px;
+    width: 100%;
+    background: #202736;
+}
+.chathistoricoheader{
+    align-items: center;
+    justify-content: center;
+}
+.chat{
+    flex-direction: column;
+    margin: 30px auto
+}
+.friend{
+    align-items: flex-start;
+    color: white;
+    padding: 10px;
+    width: 300px;
+}
+.frienddata{
+    flex-direction: column;
+    padding: 10px;
+}
+.chatinfo{
     align-items: center;
 }
-@keyframes useroptionsaparecer {
-    from{
-        transform: translateY(110%);
-    }
-    to{
-        transform: translateY(8%);
-    }
-}
-.divisoria1{
-    width: 250px;
-    height: 0px;
-    margin: auto;
-    margin-top:15px;
-    border: 1px solid #757575;
+.chatinfo p{
+    padding: 5px;
 }

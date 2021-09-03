@@ -37,9 +37,10 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
     <title>Teste</title>
 </head>
 
@@ -60,41 +61,37 @@
             <div class="row">
                 <!-- botao criar conta -->
                 <div class="col">
-                    <button class="btncreatecc big blue radius" onclick="location.href = 'novaconta.html'">
-                        Create an account
+                    <button class="btncreatecc" onclick="location.href = 'novaconta.html'">
+                        <p>Create an account</p>
+                        <i class="far fa-envelope fa-lg"></i>
                     </button>
                 </div>
             </div>
-            <div class="space"></div>
-            <div class="row">
-                <!-- login com apps -->
+            <!-- login com apps -->
+            <div class="row">                
                 <div class="col">
-                    <h4 class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:13px" >Login with:</h4>
-                    <button class="btnmedia grey-700 radius icon ion-social-facebook"></button>
-                    <button class="btnmedia grey-700 radius icon ion-social-google"></button>
+                    <button class="btnmedia"><img src="https://img.icons8.com/fluency/28/000000/facebook-circled.png"/></button>
+                    <button class="btnmedia"><img src="https://img.icons8.com/color/28/000000/google-logo.png"/></button>
                 </div>
             </div>
             <div class="space"></div>
             <div class="row">                
                 <div class="col">
-                    <h4 class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:13px" >already have an account?</h4>
+                    <h4 class="text-white" style="font-size:13px" >already have an account?</h4>
                 </div>
             </div>
             <div class="row">
                 <!-- botao conta ja criada -->
                 <div class="col">
                     <a href="contacriada.html">
-                        <h4 class="text-blue" style="font-family: 'Open Sans', sans-serif;font-size:13px">Login in</h4>
+                        <h4 class="text-blue" style="font-size:13px">Login in</h4>
                     </a>
                 </div>
             </div>
-            <div class="space"></div>
-            <div class="space"></div>
-            <div class="row">
-                <div class="col">
-                    <h4 class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:20px" >muv</h4>
-                </div>
-            </div>
+            <div class="logo">
+                <img class="imgmuvlogo" src="img/foguetinho.png">                      
+                <h4 class="muvtextlogo">muv</h4>
+            </div>                
         </div>
     </div>
     

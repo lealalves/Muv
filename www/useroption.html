@@ -25,9 +25,11 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -45,258 +47,235 @@
 </head>
 
 <body style="background-color: grey;">
-    <div class="page">
+    <div class="content page">
         <!-- header -->
-        <div class="row header" style="animation: inicio .3s;">
-            <div class="row left">
-                <div class="row optionsheaderleft">
-                    <div class="row">
-                        <i class="fas fa-arrow-left fa-lg" onclick="backPage()"></i>
-                    </div>
-                    <div class="row">
-                        <img src="img/smallavatar.png" class="optionsavatar">
-                    </div>
-                    <div class="row userlevel">
-                        <p style="font-size:18px">Name</p>
-                        <p style="font-size:12px">Level 4/45%</p>                       
-                    </div>                    
-                </div>                
-            </div>
-            <div class="row right">
+        <div class="header" style="animation: inicio .3s;">
+            <div class="row optionsheader">
                 <div class="row">
+                    <i style="color:white;" class="fas fa-arrow-left fa-lg" onclick="backPage()"></i>
+                </div>
+                <div class="row">
+                    <img src="img/smallavatar.png" class="optionsavatar">
+                </div>
+                <div class="row userlevel">
+                    <p style="font-size:18px">Name</p>
+                    <p style="font-size:12px">Level 4/45%</p>                       
+                </div>
                     <div class="row">
-                        <img src="img/iconstatistic.png"/>
-                    </div>
-                </div>                
-            </div>            
+                    <img src="img/iconstatistic.png"/>
+                </div>                    
+            </div>                                          
         </div>
         <!-- background opcoes -->
-        <!-- <div class="row useroptionsbg"> 
-            <div class="header" style="height:30px;background-color:#0D1016;border-radius: 10px 10px 0 0;margin-bottom: 10px;">
-                <div class="row-center" style="margin-top: -5px;">
-                    <div class="col-10">
+        <div class="row useroptionsbg">
+            <div class="header">
+                <div class="row chathistoricoheader">
+                    <div>
                         <input class="optionsradio" id="chat" type="radio" name="options" checked>
-                        <label id="label" for="chat">
+                        <label class="optionstxt" for="chat">
                             <h1 style="font-size:10px">CHAT</h1>
                         </label>
                     </div>
-                    <div class="col-10">
-                        <div style="background-color:#4B5C7E;" class="row horizontal-align-center">
-                            |
-                        </div>                        
-                    </div>
-                    <div class="col-10">
+                    <div class="divisoriaopt"></div>
+                    <div>
                         <input class="optionsradio" id="historico" type="radio" name="options">
-                        <label id="label" for="historico">
+                        <label class="optionstxt" for="historico">
                             <h1 style="font-size:10px">HISTORIC</h1>
                         </label>
                     </div>
                 </div>
-            </div> -->
-            <!-- <div class="chat">
-                <div class="item">
-                    <div class="left">
-                        <img class="avatar circle" src="img/avatar2.png">
-                    </div>
-                    <h2>Name</h2>
-                    <p class="text-grey">Lorem Ipsum is simply ...</p>
-                </div>
-                <div class="item">
-                    <div class="left">
-                        <img class="avatar circle" src="img/avatar2.png">
-                    </div>
-                    <h2>Name</h2>
-                    <p class="text-grey">Lorem Ipsum is simply ...</p>
-                </div>
-                <div class="item">
-                    <div class="left">
-                        <img class="avatar circle" src="img/avatar2.png">
-                    </div>
-                    <h2>Name</h2>
-                    <p class="text-grey">Lorem Ipsum is simply ...</p>
-                </div>
-                <div class="item">
-                    <div class="left">
-                        <img class="avatar circle" src="img/avatar2.png">
-                    </div>
-                    <h2>Name</h2>
-                    <p class="text-grey">Lorem Ipsum is simply ...</p>
-                </div>
-            </div> -->
+            </div>
             <!-- bg chat -->
-            <!-- <div class="chat">
-                <div class="row" style="margin-top: 50px">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar2.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-                <div class="divisoria1"></div>
-                <div class="row">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar3.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-                <div class="divisoria1"></div>
-                <div class="row">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar4.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-                <div class="divisoria1"></div>
-                <div class="row">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar5.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-                <div class="divisoria1"></div>
-                <div class="row">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar6.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-                <div class="divisoria1"></div>
-                <div class="row">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar7.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-                <div class="divisoria1"></div>
-                <div class="row">
-                    <div class="col" style="margin-left: 50px;">
-                        <div class="item">
-                            <div class="left" style="margin-top: -5px;">
-                              <img class="circle" src="img/avatar8.png">
-                            </div>
-                            <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
-                            </div>                        
-                            <div class="row align-center">
-                                <div class="col-10">
-                                    <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
-                                </div>
-                                <div class="col align-left">
-                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
-                                </div>
-                            </div>    
-                        </div>
-                    </div>                
-                </div>
-            </div> -->
-            <!-- bg historico -->
-            <!-- <div class="historico">
-                <div class="row menuoption padding vertical-align-center">
-                    <div class="col-20">
-                        <img src="img/iconnotification.png">
+            <!-- <div class="row chat">
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar2.png">
                     </div>
-                    <div class="col">                        
-                        <h1 class="text-white align-left" style="font-size:15px">
-                        Turnned On
-                        </h1>
-                    </div>                    
-                    <div class="col">
-                        <label class="switch">
-                            <input type="checkbox" checked>
-                            <span class="slider round"></span>
-                        </label>
-                    </div>                   
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
                 </div>
-            </div>         -->
-        </div>       
+                <div class="divisoriafriend"></div>                
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar3.png">
+                    </div>
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divisoriafriend"></div>
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar4.png">
+                    </div>
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divisoriafriend"></div>
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar5.png">
+                    </div>
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divisoriafriend"></div>
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar6.png">
+                    </div>
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divisoriafriend"></div>
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar7.png">
+                    </div>
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="divisoriafriend"></div>
+                <div class="row friend">
+                    <div class="row">
+                        <img class="avatar circle" src="img/avatar8.png">
+                    </div>
+                    <div class="row frienddata">
+                        <h2>Name</h2>
+                        <div class="row chatinfo">
+                            <svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px" width="12" height="12"
+                                viewBox="0 0 172 172" style=" fill:#000000;">
+                                <g fill="none" fill-rule="nonzero" stroke="none" stroke-width="1" stroke-linecap="butt"
+                                    stroke-linejoin="miter" stroke-miterlimit="10" stroke-dasharray=""
+                                    stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none"
+                                    text-anchor="none" style="mix-blend-mode: normal">
+                                    <path d="M0,172v-172h172v172z" fill="none"></path>
+                                    <g fill="#ffffff">
+                                        <path
+                                            d="M130.3975,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-38.5925,-38.5925c-1.37062,-1.37062 -3.57437,-1.37062 -4.945,0c-1.37063,1.37063 -1.37063,3.57438 0,4.945l41.28,41.28c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063zM168.2375,30.8525c-0.14781,0.02688 -0.29562,0.06719 -0.43,0.1075c-0.77937,0.18813 -1.46469,0.645 -1.935,1.29l-83.5275,100.19l-8.815,-8.7075c-0.83312,-1.02125 -2.16344,-1.49156 -3.45344,-1.19594c-1.27656,0.29562 -2.28438,1.30344 -2.58,2.58c-0.29563,1.29 0.17469,2.62031 1.19594,3.45344l11.395,11.5025c0.69875,0.69875 1.66625,1.075 2.64719,1.00781c0.99438,-0.06719 1.90813,-0.55094 2.51281,-1.33031l86,-103.2c0.95406,-1.075 1.14219,-2.62031 0.47031,-3.89687c-0.67188,-1.26313 -2.05594,-1.98875 -3.48031,-1.80063z">
+                                        </path>
+                                    </g>
+                                </g>
+                            </svg>
+                            <p class="text-grey">Lorem Ipsum is simply ...</p>
+                        </div>
+                    </div>
+                </div>
+            </div>-->
+            <!-- bg historico -->
+            <div class="historico">
+                
+            </div>
+        </div>
     </div>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
-    <script>      
-
-    </script>
 </body>
 
 </html>

@@ -1,26 +1,28 @@
-@font-face {
-    font-family: 'teste';
+.logo{
+    width: 50px;
+    margin: auto;
+}
+.imgmuvlogo{
+    width: 30px;
+    margin-bottom: -25px;
+}
+.muvtextlogo{
     font-style: normal;
     font-weight: normal;
-    src: local('teste'), url('../fonts/KdamThmor-Regular.woff') format('woff');
+    font-size: 20px;
+    line-height: 54px;
+    text-align: center;
+    color: #FFFFFF;
 }
-body{
-    font-family: 'teste';
+.iniciotxt{
     font-style: normal;
     font-weight: normal;
     font-size: 60px;
     line-height: 108px;
     color: whitesmoke;
 }
-
-
-
-
-
-
-
 .bg{
-    background: #222222;
+    background: #0D1016;
 }
 .bginapp{
     background-image:url('../img/bgespec.png');
@@ -59,13 +61,19 @@ body{
 .telaini{
     background: linear-gradient(190.86deg, rgba(0, 56, 255, 0.4) 7.61%, rgba(255, 255, 255, 0) 100%), #0036F5;
 }
+.loginbg{
+    width: 250px;
+    height: 250px;
+    margin: auto;
+    border-radius: 20px;
+}
 .inputlogin{
     width: 200px;
     border: none;
     border-radius: 5px;
     color: white;
-    background: #606060;
-    padding: 12px 10px;
+    background: #1D222D;
+    padding: 15px;
     box-shadow: 0px 10px 40px #0000003b;
     transition: .2s ease;
 }
@@ -84,38 +92,48 @@ body{
     animation: error 1s ease-out  alternate-reverse;
 }
 .inputlogin::placeholder{
-    color: #C5C5C5;
+    color: #7E8594;
 }
 .btnlogin{
-    width: 100px;
+    width: 80px;
     background: #063DFF;
     box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
     border-radius: 10px;
+    color: white;
+}
+.btnnext{
+    width: 80px;
 }
 .btncreatecc{
-    box-shadow: 0px 10px 40px #0b99ff5b;
+    background: #063DFF;
+    box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
+    color: white;
+    border-radius: 10px;
+    width: 200px;
+    height: 50px;
+    margin-bottom: 5px;
+}
+.btncreatecc p{
+    display: inline-block;
+    font-size: 18px;
+}
+.btncreatecc i{
+    margin-left: 100px;
 }
 .btnmedia{
+    background-color: #3A3A3A;
+    border-radius: 10px;
     margin: 5px;
-    width: 70px;
-}
-.loginbg{
-    width: 250px;
-    height: 250px;
-    margin: auto;
-    background: rgba(231, 231, 231, 0.09);
-    box-shadow: 0px 10px 40px rgba(0, 0, 0, 0.41);
-    border-radius: 20px;
+    width: 90px;
+    height: 50px;
+    line-height: 0;
 }
 .loginbg input[type = text]{
     margin-top: 50px;
 }
-.logomuv{
-    transform: translateY(18px);
-}
 .titlelg{
     width: 180px;
-    margin: auto;
+    margin: auto;    
     font-weight: bold;
 }
 .efeito{
@@ -129,14 +147,22 @@ body{
     border-radius: 5px;
 }
 .especbg{
-    width: 300px;
-    padding-left: 15px;
-    padding-right: 5px;
+    width: 400px;
 }
-.espec-option{
+.espectitulo{
+    justify-content: space-evenly;
+}
+.espec-item{
+    justify-content: center;
+}
+.especbg .col{
+    flex-grow: 0;
+}
+.espec-option-img{
     display: block;
     width: 100%;
     height: 100%;
+    padding: 5px;
 }
 .trigger-input{
     display: none;
@@ -157,8 +183,8 @@ body{
 }
 .divespec{
     position: relative;
-    width: 130px;
-    height: 130px;
+    width: 30vw;
+    height: 30vw;
 }
 .overlay{
     position: absolute;
@@ -172,18 +198,18 @@ body{
     transition: 0.3s ease;
 }
 .btnespec{
-    opacity: 0;
+    opacity: 1;
     transition: .2s ease;
 }
 .btnespec.show{
     opacity: 1;
 }
 .perfilbg{
-    background: #222222;
+    background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
     border-radius: 37px 37px 0px 0px;
-    width: 100vw;
-    height: 100vh;
+    width: 100%;
+    height: 100%;
     animation: perfilaparecer .5s forwards;
 }
 @keyframes perfilaparecer{
@@ -194,41 +220,65 @@ body{
         transform: translateY(20%);
     }
 }
-.avatar{
+.avatarperfil{
+    width: 35vw;
     border: 2px solid #22FFAF;
     border-radius: 50%;
     box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
 }
-.imgperfil{
-    top: -60px;
+.perfiltopo{
+    flex-direction: column;
+    align-items: center;
+    margin-top: -50px;
 }
-.userdata{
-    width: 300px;
+.imgtxtperfil{
+    flex-direction: column;
+    align-items: center;
+}
+.usernameperfil{
+    justify-content: center;
+    margin-bottom: 5vw;
+}
+.userimg{
+    align-items: flex-end;
+    margin-bottom: 5vw;
+}
+.userdatabg{
+    width: 270px;
     margin: auto;
+    border: none;
+    margin-bottom: 10vw;
 }
-.userdata .row{
-    padding-bottom: 30px;
+.item{
+    border-bottom: 1px solid #B2B2B2 !important ;
+}
+.btneditimg{
+    position: relative;
+    padding: 5px;
+    margin-left: 30vw;
+    margin-top: -2rem;
 }
 .especselect{
-    width: 140px;
-    padding: 2px;
+    width: 150px;
+    padding: 5px;
     border-radius: 7px;
-    margin: auto;
-}
-.especselect img{
-    padding: 1px 5px 1px 5px;
-}
-.txtespec{
-    padding-right: 5px;
+    background-color: #22FFAF;
+    justify-content: space-around;
 }
 .paymentbg{
-    width: 300px;
+    width: 250px;
     margin: auto;
-    padding: 10px;
-    border-radius: 23px;
+    flex-direction: column    
 }
-.paymentbg img{
-    padding: 10px;
+.paymentbgtitle{
+    color: white;
+    justify-content: center;
+}
+.metodosbg{
+    padding: 5px;
+}
+.separador{
+    border-top: 1px solid #B2B2B2;
 }
 .iconmenu{
     box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
@@ -637,13 +687,13 @@ input[type=radio]{
     display: none;
 }
 :checked + label{
-    color:#6B6B6B
+    color:#fff
 }
-#chat:checked ~ #historico{
-    display: none;
+label{
+    color:#4B5C7E;
 }
 .useroptionsbg{
-    background: #222222;
+    background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
     border-radius: 10px 10px 0px 0px;
     width: 100vw;
@@ -651,12 +701,26 @@ input[type=radio]{
     animation: useroptionsaparecer .5s forwards;
 }
 @keyframes useroptionsaparecer {
-    from{
+    0%{
         transform: translateY(110%);
     }
-    to{
+    100%{
         transform: translateY(8%);
     }
+}
+.optionsavatar{
+    border: 2px solid #22FFAF;
+    border-radius: 50%;
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
+}
+.optionsheader{
+    align-items: center;
+    padding: 50px;
+    justify-content: space-between;
+}
+.userlevel{
+    color: white;
+    flex-direction: column;
 }
 .divisoria1{
     width: 250px;

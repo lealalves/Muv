@@ -40,8 +40,10 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <script src="js/jquery.js"></script>
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
     <script>
         function cadastrar() {
             var email = $('#email').val();
@@ -103,29 +105,26 @@
             <div class="space"></div>
             <div class="space"></div>
             <!-- botao cadastrar  -->
-            <button id="cadastrar" class="blue radius big btnlogin" onclick="cadastrar()">Next</button>
+            <button id="cadastrar" class="btnlogin btnnext" onclick="cadastrar()">Next</button>
             <div class="space"></div>
             <div class="row">
                 <div class="col">
-                    <h4 class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:13px">already have an
-                        account?</h4>
+                    <h4 class="text-white" style="font-size:13px">already have an account?</h4>
                 </div>
             </div>
             <div class="row" style="margin-top: 10px;">
                 <div class="col">
                     <!-- conta criada -->
                     <a href="contacriada.html">
-                        <h4 class="text-blue" style="font-family: 'Open Sans', sans-serif;font-size:13px">Login in</h4>
+                        <h4 class="text-blue" style="font-size:13px">Login in</h4>
                     </a>
                 </div>
             </div>
             <div class="space"></div>
             <div class="space"></div>
-            <div class="row" style="margin-top: 5vh;">
-                <div class="col">
-                    <img class="logomuv" src="img/foguetinho.png">
-                    <h4 class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:30px">muv</h4>
-                </div>
+            <div class="logo">
+                <img class="imgmuvlogo" src="img/foguetinho.png">                      
+                <h4 class="muvtextlogo">muv</h4>
             </div>
         </div>
     </div>

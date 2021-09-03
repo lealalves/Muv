@@ -37,66 +37,86 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
     <title>Teste</title>
 </head>
 
-<body>
-    <div class="page row-center">
+<body style="background-color: grey;">
+    <div class="page">
         <!-- header -->
-        <div class="header padding" style="animation: inicio .3s;">
-            <div class="left" style="margin-left:30px;">
-                <div class="row vertical-align-center">
-                    <div class="col" style="margin-right:12px;">
-                        <button class="icon ion-android-arrow-back" onclick="backPage()"></button>
-                    </div>
-                    <div class="col">
-                        <img src="img/smallavatar.png" class="avatar">
-                    </div>
-                    <div class="col" style="margin-left:12px;">
-                        <div class="row" style="margin-bottom:5px;">
-                            <p style="font-family: 'Open Sans', sans-serif;font-size:18px">Name</p>
-                        </div>
-                        <div class="row">
-                            <p style="font-family: 'Open Sans', sans-serif;font-size:10px">Level 4/45%</p>
-                        </div>                        
-                    </div>                    
-                </div>                
-            </div>
-            <div class="right" style="margin-right:50px;">
+        <div class="header" style="animation: inicio .3s;">
+            <div class="row optionsheader">
                 <div class="row">
-                    <div class="col">
-                        <img src="img/iconstatistic.png">
-                    </div>
-                </div>                
-            </div>            
+                    <i style="color:white;" class="fas fa-arrow-left fa-lg" onclick="backPage()"></i>
+                </div>
+                <div class="row">
+                    <img src="img/smallavatar.png" class="optionsavatar">
+                </div>
+                <div class="row userlevel">
+                    <p style="font-size:18px">Name</p>
+                    <p style="font-size:12px">Level 4/45%</p>                       
+                </div>
+                    <div class="row">
+                    <img src="img/iconstatistic.png"/>
+                </div>                    
+            </div>                                          
         </div>
         <!-- background opcoes -->
-        <div class="col useroptionsbg"> 
-            <div class="header" style="height:30px;background-color:#2C2C2C;border-radius: 10px 10px 0 0;margin-bottom: 10px;">
-                <div class="row-center" style="margin-top: -5px;">
+        <div class="row useroptionsbg"> 
+            <div class="header" style="height:30px;background-color:#0D1016;border-radius: 10px 10px 0 0;margin-bottom: 10px;">
+                <div class="row" style="margin-top: -5px;">
                     <div class="col-10">
                         <input class="optionsradio" id="chat" type="radio" name="options" checked>
                         <label id="label" for="chat">
-                            <h1 style="font-family: 'Open Sans', sans-serif;font-size:10px">CHAT</h1>
+                            <h1 style="font-size:10px">CHAT</h1>
                         </label>
                     </div>
                     <div class="col-10">
-                        <div class="row horizontal-align-center">
-                            |
-                        </div>                        
+                        <div style="background-color:#4B5C7E;" class="row horizontal-align-center"></div>                        
                     </div>
                     <div class="col-10">
                         <input class="optionsradio" id="historico" type="radio" name="options">
                         <label id="label" for="historico">
-                            <h1 style="font-family: 'Open Sans', sans-serif;font-size:10px">HISTORIC</h1>
+                            <h1 style="font-size:10px">HISTORIC</h1>
                         </label>
                     </div>
                 </div>
             </div>
+            <!-- <div class="chat">
+                <div class="item">
+                    <div class="left">
+                        <img class="avatar circle" src="img/avatar2.png">
+                    </div>
+                    <h2>Name</h2>
+                    <p class="text-grey">Lorem Ipsum is simply ...</p>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <img class="avatar circle" src="img/avatar2.png">
+                    </div>
+                    <h2>Name</h2>
+                    <p class="text-grey">Lorem Ipsum is simply ...</p>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <img class="avatar circle" src="img/avatar2.png">
+                    </div>
+                    <h2>Name</h2>
+                    <p class="text-grey">Lorem Ipsum is simply ...</p>
+                </div>
+                <div class="item">
+                    <div class="left">
+                        <img class="avatar circle" src="img/avatar2.png">
+                    </div>
+                    <h2>Name</h2>
+                    <p class="text-grey">Lorem Ipsum is simply ...</p>
+                </div>
+            </div> -->
             <!-- bg chat -->
-            <div class="chat">
+            <!-- <div class="chat">
                 <div class="row" style="margin-top: 50px">
                     <div class="col" style="margin-left: 50px;">
                         <div class="item">
@@ -104,14 +124,14 @@
                               <img class="circle" src="img/avatar2.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-family: 'Open Sans', sans-serif;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
@@ -125,14 +145,14 @@
                               <img class="circle" src="img/avatar3.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-family: 'Open Sans', sans-serif;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
@@ -146,14 +166,14 @@
                               <img class="circle" src="img/avatar4.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-family: 'Open Sans', sans-serif;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
@@ -167,14 +187,14 @@
                               <img class="circle" src="img/avatar5.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;font-family: 'Open Sans', sans-serif;color:white;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
@@ -188,14 +208,14 @@
                               <img class="circle" src="img/avatar6.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-family: 'Open Sans', sans-serif;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
@@ -209,14 +229,14 @@
                               <img class="circle" src="img/avatar7.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-family: 'Open Sans', sans-serif;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
@@ -230,28 +250,28 @@
                               <img class="circle" src="img/avatar8.png">
                             </div>
                             <div class="row">                            
-                                <h2 style="margin-left: 13px;color:white;font-family: 'Open Sans', sans-serif;font-size:15px">Name</h2>
+                                <h2 style="margin-left: 13px;color:white;font-size:15px">Name</h2>
                             </div>                        
                             <div class="row align-center">
                                 <div class="col-10">
                                     <img style="margin-top: 7px;margin-left: 10px;" src="img/iconmessage.png">
                                 </div>
                                 <div class="col align-left">
-                                    <p class="text-grey" style="font-family: 'Open Sans', sans-serif;font-size:11px">Lorem Ipsum is simply ...</p>
+                                    <p class="text-grey" style="font-size:11px">Lorem Ipsum is simply ...</p>
                                 </div>
                             </div>    
                         </div>
                     </div>                
                 </div>
-            </div>
+            </div> -->
             <!-- bg historico -->
-            <div class="historico">
+            <!-- <div class="historico">
                 <div class="row menuoption padding vertical-align-center">
                     <div class="col-20">
                         <img src="img/iconnotification.png">
                     </div>
                     <div class="col">                        
-                        <h1 class="text-white align-left" style="font-family: 'Open Sans', sans-serif;font-size:15px">
+                        <h1 class="text-white align-left" style="font-size:15px">
                         Turnned On
                         </h1>
                     </div>                    
@@ -262,8 +282,8 @@
                         </label>
                     </div>                   
                 </div>
-            </div>        
-        </div>       
+            </div>
+        </div> -->      
     </div>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
     <script>      

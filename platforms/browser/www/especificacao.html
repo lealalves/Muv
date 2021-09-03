@@ -38,33 +38,38 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     
+    <script src="js/jquery.js"></script>
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
     <title>Teste</title>
 </head>
 
-<body class="bginapp">
+<body class="bg">
     <div class="content row-center align-center transicao">
         <div class="especbg">
-            <div class="row">
+            <!-- titulo -->
+            <div class="row espectitulo">
                 <div class="col">
-                    <h1 class="row horizontal-align-center text-white" style="font-family: 'Open Sans', sans-serif;font-size:28px">
+                    <h1 class="row text-white" style="font-size:28px">
                      Why do you need us?
                     </h1>
                 </div>
             </div>
             <div class="space"></div>
-            <div class="row">
+            <!-- 1 linha especificaçoes -->
+            <div class="row espec-item">
                 <div class="col">
                     <input type="checkbox" class="trigger-input" id="espec1">
                     <label for="espec1">
                         <div class="divespec">
-                            <img class="espec-option" src="img/espec1.png">
+                            <img class="espec-option-img" src="img/espec1.png">
                             <div class="overlay"></div>
                             <img class="checked" src="img/checked.png">                            
                         </div>
                     </label>
-                    <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:13px">
+                    <p class="text-white" style="font-size:13px">
                         I am visually <br> impaired
                     </p>
                 </div>
@@ -72,51 +77,46 @@
                     <input type="checkbox" class="trigger-input" id="espec2">
                     <label for="espec2">
                         <div class="divespec">
-                            <img class="espec-option" src="img/espec2.png">
+                            <img class="espec-option-img" src="img/espec2.png">
                             <div class="overlay"></div>
                             <img class="checked" src="img/checked.png">                       
                         </div>
                     </label>
-                    <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:13px">
+                    <p class="text-white" style="font-size:13px">
                         I am hearing <br> impaired
                     </p>
                 </div>
             </div>
-            <div class="row">
+            <!-- 2 linha especificaçoes -->
+            <div class="row espec-item">
                 <div class="col">
                     <input type="checkbox" class="trigger-input" id="espec3">
                     <label for="espec3">
                         <div class="divespec">
-                            <img class="espec-option" src="img/espec3.png">
+                            <img class="espec-option-img" src="img/espec3.png">
                             <div class="overlay"></div>
                             <img class="checked" src="img/checked.png">                            
                         </div>
                     </label>
-                    <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:13px">
+                    <p class="text-white" style="font-size:13px">
                         I am disabled
                     </p>
                 </div>
                 <div class="col">
                     <label for="espec4">
                         <div class="divespec">
-                            <img class="espec-option" src="img/especoutros.png">                       
+                            <i style="color: #ffffff;" class="fas fa-plus"></i>                       
                         </div>
                     </label>
-                    <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:13px">
+                    <p class="text-white" style="font-size:13px">
                         No one, or <br> another
                     </p>
                 </div>
             </div>
             <div class="space"></div>
-            <button class="blue radius big btnlogin btnespec" onclick="openPage('perfil')">OK</button>
-            <div class="space"></div>
-            <div class="row">
-                <div class="col">
-                    <img class="logomuv" src="img/foguetinho.png">
-                    <h4 class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:30px">muv</h4>
-                </div>
-            </div>  
-        </div>  
+            <!-- botao ok -->
+            <button class="btnlogin btnespec" onclick="openPage('perfil')">OK</button>
+        </div>
     </div>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
     <script>
