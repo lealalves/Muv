@@ -731,7 +731,9 @@ input[type=radio]{
     justify-content: center;
 }
 .chat{
+    width: 100vw;
     flex-direction: column;
+    align-items: center;
     margin-top: 30px;
 }
 .friend{
@@ -751,8 +753,10 @@ input[type=radio]{
     padding: 5px;
 }
 .historico{
-    margin-top: 100px;
+    width: 100vw;
     flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
 }
 .historicdata{
     background: #242A37;
@@ -784,7 +788,7 @@ input[type=radio]{
     padding: 5px;
 }
 .btnhistoric{
-    width: 100%;
+    width: 80%;
     background: #063DFF;
     box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
     border-radius: 10px;
