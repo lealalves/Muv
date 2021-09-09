@@ -330,8 +330,13 @@
     }
 }
 .userinfo{
+    margin-top: 5em;
     flex-direction: column;
     align-items: center;
+}
+.userinfo h1{
+    margin-top: 1em;
+    margin-bottom: 2em;
 }
 .configbg{
     flex-direction: column;
@@ -859,6 +864,19 @@ input[type=radio]{
     margin: 10px auto;
 }
 
+.footermenubg{
+    margin: 0 auto;
+    width: 20em;
+}
+.footeritem{
+    align-items: center;
+    padding: 10px;
+}
+.footeritemicon{
+    width: 38px;
+    padding: 10px;
+    justify-content: center;
+}
 
 /*deixando a tela responsiva*/
 @media only screen and (max-height: 640px) {
