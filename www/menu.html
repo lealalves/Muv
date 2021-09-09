@@ -39,8 +39,10 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
     <title>Teste</title>
 </head>
 
@@ -50,10 +52,14 @@
             <!-- avatar e username -->
             <div class="row userinfo">
                 <img src="img/avatar1.png" class="avatarmenu">
+                <div class="btneditimg">
+                    <i style="color: white;" class="fas fa-edit"></i>
+                </div> 
                 <h1 class="row text-white" style="font-size:25px">Name</h1>
             </div>
-            <!-- opçoes -->
+            <!-- configs -->
             <div class="row configbg">
+                <!-- input tema claro/escuro -->
                 <div class="row menuoption">
                     <div class="row configicon">
                         <div class="row">
@@ -70,8 +76,9 @@
                         </label>
                     </div>
                 </div>
+                <!-- notificações -->
                 <div class="row">
-                    <h1 class="configtitle">Notifications</h1>
+                    <h1 style="color: #C7CEDD;" class="configtitle">Notifications</h1>
                 </div>
                 <div class="row menuoption">
                     <div class="row configicon">
@@ -89,8 +96,9 @@
                         </label>
                     </div>
                 </div>
+                <!-- acessibilidade/voz -->
                 <div class="row">
-                    <h1 class="configtitle">Voice Acess</h1>
+                    <h1 style="color: #C7CEDD;" class="configtitle">Voice Acess</h1>
                 </div>
                 <div class="row menuoption">
                     <div class="row configicon">
@@ -108,6 +116,7 @@
                         </label>
                     </div>
                 </div>
+                <!-- audio -->
                 <div class="row menuoption">
                     <div class="row configicon">
                         <div class="row">
@@ -118,8 +127,9 @@
                         </div>
                     </div>
                 </div>
+                <!-- idioma -->
                 <div class="row">
-                    <h1 class="configtitle">Language</h1>
+                    <h1 style="color: #C7CEDD;" class="configtitle">Language</h1>
                 </div>
                 <div class="row menuoption">
                     <div class="row configicon">
@@ -134,33 +144,44 @@
             </div>
             <!-- footer -->
             <div class="row footermenubg">
-                <div class="row">
+                <!-- opcoes -->
+                <div class="row footeritem">
+                    <div class="row footeritemicon">                        
+                        <i style="color: #51638A" class="fas fa-file-alt fa-lg"></i>
+                    </div>
                     <div class="row">
-                        <img src="img/privacyicon.png">
-                        <h1 style="font-size:15px">Privacy<h1>
+                        <h1 style="color: #51638A;font-size:15px">Privacy<h1>                        
                     </div>
                 </div>
                 <div class="divisoriamenu"></div>
-                <hr>
-                <div class="row">
+                <!-- opcoes -->
+                <div class="row footeritem">
+                    <div class="row footeritemicon">
+                        <i style="color: #51638A" class="far fa-question-circle fa-lg"></i>                        
+                    </div>
                     <div class="row">
-                        <img src="img/helpicon.png">
-                        <h1 style="font-size:15px">Help<h1>
+                        <h1 style="color: #51638A;font-size:15px">Help<h1>
                     </div>
                 </div>
-                <hr>
-                <div class="row">
+                <div class="divisoriamenu"></div>
+                <!-- opcoes -->
+                <div class="row footeritem">
+                    <div class="row footeritemicon">
+                        <i style="color: #51638A" class="fas fa-info fa-lg"></i>                        
+                    </div>
                     <div class="row">
-                        <img src="img/abouticon.png">
-                        <h1 style="font-size:15px">About<h1>
+                        <h1 style="color: #51638A;font-size:15px">About<h1>
                     </div>
                 </div>
-                <hr>
-                <div class="row">
-                    <div class="row">
-                        <img src="img/logouticon.png">
-                        <h1 style="font-size:15px">Log out<h1>
+                <div class="divisoriamenu"></div>
+                <!-- opcoes -->
+                <div class="row footeritem">
+                    <div class="row footeritemicon">
+                        <i style="color: #51638A" class="fas fa-sign-out-alt fa-lg"></i>                        
                     </div>
+                    <div class="row">
+                        <h1 style="color: #51638A;font-size:15px">Log out<h1></h1>
+                    </div>                    
                 </div>
             </div>
         </div>
