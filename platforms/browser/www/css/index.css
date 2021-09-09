@@ -313,12 +313,13 @@
     padding: 60px;
 }
 .menubg{
-    padding-top: 100px;
-    background: #222222;
+    background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
-    width: 100vw;
+    width: 90vw;
     height: 100vh;
-    animation: menuaparecer .5s forwards;
+    overflow: scroll;
+    flex-direction: column;
+    /* animation: menuaparecer .5s forwards; */
 }
 @keyframes menuaparecer{
     from{
@@ -328,12 +329,54 @@
         transform: translateX(-5%);
     }
 }
+.userinfo{
+    flex-direction: column;
+    align-items: center;
+}
+.configbg{
+    flex-direction: column;
+}
 .menuoption{
-    background-color: #606060;
+    background-color: #1D222D;
     margin: auto;
-    margin-bottom: 10px;
     border-radius: 10px;
     width: 300px;
+    height: 60px;
+    margin-bottom: 10px;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    color: #C7CEDD;
+}
+.configicon .row{
+    padding: 10px;
+    align-items: center;
+}
+.configicon .row img{
+    width: 5vw;
+}
+.configtitle{
+    color: white;
+    padding: 10px;
+    margin:auto;
+    width:300px;
+    font-size:15px
+}
+.avatarmenu{
+    width: 120px;
+    height: 120px;
+    border: 2px solid #22FFAF;
+    border-radius: 50%;
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
+}
+.divisoriamenu{   
+    height: 1px;
+    width: 100%;
+    background: #202736;
+}
+.footermenubg{
+    flex-direction: column;
+    color: white;
 }
 /* botao que desliza la no menu :D */
 /* The switch - the box around the slider */
@@ -357,7 +400,7 @@
     left: 0;
     right: 0;
     bottom: 0;
-    background-color: white;
+    background-color: #0D1016;
     -webkit-transition: .4s;
     transition: .4s;
 }  
@@ -368,12 +411,12 @@
     width: 26px;
     left: 4px;
     bottom: 4px;
-    background-color: black;
+    background-color: #3E4C6A;
     -webkit-transition: .4s;
     transition: .4s;
 }  
 input:checked + .slider {
-    background-color: #2196F3;
+    background-color: #0D1016;
 }  
 input:focus + .slider {
     box-shadow: 0 0 1px #2196F3;
@@ -656,13 +699,6 @@ input:checked + .slider:before {
     border-radius: 10px;
     width: 300px;
 }
-.txttest{
-    position: absolute;
-    margin-left: 27.5px;
-    margin-top: -5px;
-    color: #929292;
-    transform: rotate(-90deg);
-}
 .btnfinishrace{
     width: 70px;
     background: #063DFF;
@@ -689,7 +725,7 @@ input[type=radio]{
 :checked + label{
     color:#fff
 }
-label{
+.optionstxt{
     color:#4B5C7E;
 }
 .useroptionsbg{
@@ -698,6 +734,7 @@ label{
     border-radius: 10px 10px 0px 0px;
     width: 100vw;
     height: 100vh;
+    overflow-x: hidden;    
     animation: useroptionsaparecer .5s forwards;
 }
 @keyframes useroptionsaparecer {
@@ -705,7 +742,7 @@ label{
         transform: translateY(110%);
     }
     100%{
-        transform: translateY(8%);
+        transform: translateY(15%);
     }
 }
 .optionsavatar{
@@ -715,17 +752,96 @@ label{
 }
 .optionsheader{
     align-items: center;
-    padding: 50px;
+    padding: 50px 50px 0px 50px;
     justify-content: space-between;
 }
 .userlevel{
     color: white;
     flex-direction: column;
 }
-.divisoria1{
-    width: 250px;
-    height: 0px;
-    margin: auto;
-    margin-top:15px;
-    border: 1px solid #757575;
+.divisoriaopt{
+    height:15px;
+    width: 2px;
+    background: #4B5C7E;
+}
+.divisoriafriend{   
+    height: 1px;
+    width: 100%;
+    background: #202736;
+}
+.chathistoricoheader{
+    align-items: center;
+    justify-content: center;
+}
+.chat{
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 30px;
+}
+.friend{
+    align-items: flex-start;
+    color: white;
+    padding: 10px;
+    width: 300px;
+}
+.frienddata{
+    flex-direction: column;
+    padding: 10px;
+}
+.chatinfo{
+    align-items: center;
+}
+.chatinfo p{
+    padding: 5px;
+}
+.historico{
+    width: 100vw;
+    flex-direction: column;
+    align-items: center;
+    margin-top: 100px;
+}
+.historicdata{
+    background: #242A37;
+    border-radius: 10px;
+    width: 300px;
+    justify-content: space-around;
+    padding: 10px;
+    margin-bottom: 50px;
+}
+.streetinfo{
+    color: white;
+    flex-direction: column;
+}
+.streetname{
+    align-items: center;
+}
+.streetname p{
+    padding:5px;
+}
+.historicraceinfo{
+    flex-direction: column;
+    align-items: flex-end;
+    justify-content: center;
+}
+.distanceinfo{
+    align-items: center;
+}
+.distanceinfo h1{
+    padding: 5px;
+}
+.btnhistoric{
+    width: 80%;
+    background: #063DFF;
+    box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
+    border-radius: 10px;
+    color: white;
+    margin: 10px auto;
+}
+.container-menu{
+    transform: translateX(0%);
+    transition: 300ms ease;    
+}
+.container-menu.movetohistoric{
+    transform: translateX(-50%);   
 }
