@@ -92,28 +92,9 @@
     </div>
     <script src="js/jquery.js"></script>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script src="js/index.js"></script>
     <script>       
-            function login() {
-            var email = $('#email').val();
-            var senha = $('#password').val()
-            var url = `http://localhost/phonegap/muv/login.php?email=${email}&senha=${senha}`;
-                $.ajax({
-                    type: "POST",
-                    crossDomain: true, 
-                    cache: false,
-                    url: url,
-                    data: url,
-                    success: function(data){
-                        if(data == 0){
-                            $(".inputlogin").addClass("error");
-                            console.log("n foi")
-                        }else{
-                            window.location.href = `inapp.html?email=${email}`;
-                        }                        
-                    }              
-                });                
-         
-        }
+           
     </script>
 </body>
 

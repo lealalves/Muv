@@ -40,13 +40,14 @@
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
     <script defer src="js/all.js"></script>
+    <script src="js/index.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <title>Teste</title>
 </head>
 
-<body>
+<body onload="userInfo()">
     <div class="page content">
         <div class="row menubg">
             <!-- avatar e username -->
@@ -55,7 +56,7 @@
                 <div class="btneditimg">
                     <i style="color: white;" class="fas fa-edit"></i>
                 </div> 
-                <h1 class="row text-white" style="font-size:25px">Name</h1>
+                <h1 class="row text-white" id="nomeusuario" style="font-size:25px"></h1>
             </div>
             <!-- configs -->
             <div class="row configbg">
@@ -175,7 +176,7 @@
                 </div>
                 <div class="divisoriamenu"></div>
                 <!-- opcoes -->
-                <div class="row footeritem">
+                <div onclick="logout()" class="row footeritem">
                     <div class="row footeritemicon">
                         <i style="color: #51638A" class="fas fa-sign-out-alt fa-lg"></i>                        
                     </div>
@@ -186,6 +187,7 @@
             </div>
         </div>
     </div>
+    <script src="js/jquery.js"></script>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
 </body>
 
