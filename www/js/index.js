@@ -1,12 +1,12 @@
 function userInfo(){
-    $.getJSON('http://localhost/phonegap/muv/sessao.php',function(result){
+    $.getJSON('http://localhost/Muv/www/php/sessao.php',function(result){
         let input = document.querySelector('#nomeusuario')
         input.innerHTML = result.email
     })  
 }
 
 function logout(){
-    var url = 'http://localhost/phonegap/muv/logout.php'
+    var url = 'http://localhost/Muv/www/php/logout.php'
     $.ajax({
         url: url,
         data: url,
@@ -19,7 +19,7 @@ function logout(){
 function login() {
     var email = $('#email').val();
     var senha = $('#password').val()
-    var url = `http://localhost/phonegap/muv/login.php?email=${email}&senha=${senha}`;
+    var url = `http://localhost/Muv/www/php/login.php?email=${email}&senha=${senha}`;
         $.ajax({
             type: "POST",
             crossDomain: true, 
@@ -47,7 +47,7 @@ function cadastrar() {
     if ($.trim(email).length > 0 & $.trim(senha).length > 0 & $.trim(telefone).length > 0) {
         $.ajax({
             type: "POST",
-            url: "http://localhost/phonegap/muv/cadastrar.php",
+            url: "http://localhost/Muv/www/php/cadastrar.php",
             data: string,
             crossDomain: true,
             cache: false,
