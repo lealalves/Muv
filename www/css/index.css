@@ -21,22 +21,8 @@
     line-height: 108px;
     color: whitesmoke;
 }
-.bg{
-    background: #0D1016;
-}
-.bginapp{
-    background-image:url('../img/bgespec.png');
-    width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    backdrop-filter: blur(10px);
-}
-.bgmap{
-    background: url(../img/teste.png);
-    background-size:100vw;
-    background-repeat: no-repeat;
-    backdrop-filter: blur(10px);
+.bginicial{
+    background-image: url(../img/bgtest.png);
 }
 .aparecer{
     animation: inicio 2s;
@@ -162,7 +148,7 @@
     display: block;
     width: 100%;
     height: 100%;
-    padding: 5px;
+    padding: 10px;
 }
 .trigger-input{
     display: none;
@@ -176,15 +162,14 @@
 .checked{
     position: absolute;
     width: 40px;
-    top: 0;
-    margin-left: 35%;
-    margin-top: 30%;
     display: none;
 }
 .divespec{
     position: relative;
-    width: 30vw;
-    height: 30vw;
+    width: 9em;
+    height: 9em;
+    justify-content: center;
+    align-items: center;
 }
 .overlay{
     position: absolute;
@@ -198,7 +183,7 @@
     transition: 0.3s ease;
 }
 .btnespec{
-    opacity: 1;
+    opacity: 0;
     transition: .2s ease;
 }
 .btnespec.show{
@@ -280,38 +265,67 @@
 .separador{
     border-top: 1px solid #B2B2B2;
 }
-.iconmenu{
-    box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
+.inappmenuicon{
+    width: 35px;
+    height: 35px;
+    align-items: center;
+    justify-content: center;
+    background: #063DFF;
+    box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.66);
+    border-radius: 10px;
+}
+.inappheader{
+    justify-content: space-between;
+    align-items: center;
+    height: 100%;
+    padding: 3em;
+}
+.inappheader i{
+    color: blue;
+}
+.avatarinapp{
+    width: 45px;
+    height: 45px;
+    border: 2px solid #22FFAF;
+    border-radius: 50%;
+    box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
 }
 /* barra de pesquisa :) */
+.barradepesquisa{
+    height: 100%;
+    flex-direction: column;
+    justify-content: flex-end;
+    align-items: center;
+    padding-bottom: 10em;
+}
 .bar{
-    margin:0 auto;
-    width:225px;
+    width:20em;
+    height: 2.4em;
+    align-items: center;
+    justify-content: space-around;
     border-radius:30px;
     border:1px solid #dcdcdc;
-    box-shadow: 0px 4px 10px rgba(0, 0, 5, 0.74);
+    background-color: #fff;
+    box-shadow: 0px 4px 20px rgba(0, 0, 5, 0.23);
 }
 .bar:focus-within{
-    box-shadow: 0px 4px 10px rgba(0, 0, 5, 0.74);
+    box-shadow: 0px 4px 20px rgba(0, 0, 5, 0.514);
+    transition: 0.3s ease;
     outline:none;
 }
 .searchbar{
-    height:37px;
+    margin-left: 20px;
+    height:40px;
     border:none;
     width:150px;
+    height: 30px;
     font-size:16px;
     outline: none;
 }
 .voice{
     height:20px;
-    position:relative;
-    top:5px;
-    left:10px;
 }
 /*  */
-.headerinapp{
-    padding: 60px;
-}
 .menubg{
     background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
