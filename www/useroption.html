@@ -49,7 +49,7 @@
     <title>Teste</title>
 </head>
 
-<body style="background-color: grey;">
+<body onload="userOptionScreens()" style="background-color: grey;">
     <div class="content page">
         <!-- header -->
         <div class="header" style="animation: inicio .3s;">
@@ -436,27 +436,6 @@
             </div>
         </div>
     </div>
-    <script>
-
-
-            let input = document.querySelectorAll('.optionsradio')
-
-            input.forEach(item =>{
-                item.addEventListener('click',function(){
-                    let container = document.querySelector(".container-menu")
-                    if(input[1].checked == true && input[0].checked == false){                     
-                        container.classList.add('movetohistoric')
-                    }else{
-                        container.classList.remove('movetohistoric')
-                    }
-                    
-                })
-            })
-            
-        
-        
-
-    </script>
 </body>
 
 </html>

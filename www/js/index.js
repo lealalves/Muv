@@ -64,3 +64,63 @@ function cadastrar() {
             $(".inputlogin").toggleClass("error");
         }        
     }
+
+
+
+
+
+
+function validarEspec(){
+    var opcoes = document.querySelectorAll("input[type='checkbox']")
+    opcoes.forEach(function(ck){
+        ck.addEventListener("click", function(){
+            let checked = document.querySelectorAll("input[type = 'checkbox']:checked").length
+            var btn = document.querySelector(".btnespec")
+            if(checked != 0){
+                btn.classList.add("show")
+            }else{
+                btn.classList.remove("show")
+            }
+        })
+    })
+}
+
+
+
+
+
+
+
+
+
+function swiperFunc(){
+    var swiper = new Swiper(".mySwiper", {
+        slidesPerView: 2,
+        loop: false,
+        spaceBetween: 50,
+        centeredSlides: true          
+      });
+}
+
+
+
+
+
+
+
+
+function userOptionScreens(){
+    let input = document.querySelectorAll('.optionsradio')
+
+            input.forEach(item =>{
+                item.addEventListener('click',function(){
+                    let container = document.querySelector(".container-menu")
+                    if(input[1].checked == true && input[0].checked == false){                     
+                        container.classList.add('movetohistoric')
+                    }else{
+                        container.classList.remove('movetohistoric')
+                    }
+                    
+                })
+            })
+}

@@ -50,7 +50,7 @@
     <title>Teste</title>
 </head>
 
-<body class="bg">
+<body onload="validarEspec()" class="bg">
     <div class="content row-center align-center transicao">
         <div class="especbg">
             <!-- titulo -->
@@ -122,20 +122,6 @@
             <button class="btnlogin btnespec" onclick="openPage('perfil')">OK</button>
         </div>
     </div>
-    <script>
-        var opcoes = document.querySelectorAll("input[type='checkbox']")
-        opcoes.forEach(function(ck){
-            ck.addEventListener("click", function(){
-                let checked = document.querySelectorAll("input[type = 'checkbox']:checked").length
-                var btn = document.querySelector(".btnespec")
-                if(checked != 0){
-                    btn.classList.add("show")
-                }else{
-                    btn.classList.remove("show")
-                }
-            })
-        })
-    </script>
 </body>
 
 </html>
