@@ -37,34 +37,35 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <script defer src="js/all.js"></script>
     <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
     <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="css/all.css">
     <title>Teste</title>
 </head>
 
-<body class="grey" style="background: url(img/teste.png);background-size:100vw;background-repeat: no-repeat;">
-    <div class="content">
-        <div class="row">
-            <div class="col headerinapp" id="inapp">
-                <img class="iconmenu" src="img/iconmenu.png" width="45" onclick="openPage('menu')">
-                <img class="avatar right" src="img/avatar1.png" width="45" onclick="openPage('useroption')">
+<body>
+    <div class="content bginicial">
+        <div class="header">
+            <div class="row inappheader">
+                <div class="row inappmenuicon">
+                    <i style="color: white;" class="fas fa-bars fa-lg" onclick="openPage('menu')"></i>
+                </div>                
+                <img class="avatarinapp" src="img/avatar1.png" onclick="openPage('useroption')">
             </div>
         </div>
-        <div class="row horizontal-align-center vertical-align-bottom" style="height: 60vh;">
-            <div class="col-20 align-center">
-                <div class="bar white">
-                    <input class="searchbar white" type="text" title="Search" onclick="window.location.href = 'localselect.html'">
-                    <a href="#"><img class="voice" src="img/iconmic.png" title="Search by Voice"></a>
+        <div class="row barradepesquisa">
+            <div class="row">
+                <div class="row bar">
+                    <input class="searchbar" type="text" title="Search">
+                    <a href="#"><img class="row voice" src="img/iconmic.png" title="Search by Voice"></a>
                 </div>
             </div>
-        </div>
+        </div>        
     </div>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
     <script>
-        // voltar a pagina principal ao clicar em qualquer lugar fora do menu
-        document.querySelector('.content').addEventListener('click',function(){
-            backPage()
-        })       
+      
     </script>
 </body>
 
