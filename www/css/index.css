@@ -132,6 +132,15 @@
     filter: blur(80px);
     border-radius: 5px;
 }
+
+
+
+
+
+
+
+
+/* tela especificaçao */
 .especbg{
     width: 400px;
 }
@@ -189,6 +198,15 @@
 .btnespec.show{
     opacity: 1;
 }
+
+
+
+
+
+
+
+
+/* tela perfil */
 .perfilbg{
     background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
@@ -265,6 +283,15 @@
 .separador{
     border-top: 1px solid #B2B2B2;
 }
+
+
+
+
+
+
+
+
+/* tela inicial */
 .inappmenuicon{
     width: 35px;
     height: 35px;
@@ -325,7 +352,15 @@
 .voice{
     height:20px;
 }
-/*  */
+
+
+
+
+
+
+
+
+/* tela menu  */
 .menubg{
     background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
@@ -333,14 +368,14 @@
     height: 100vh;
     overflow: scroll;
     flex-direction: column;
-    /* animation: menuaparecer .5s forwards; */
+    animation: menuaparecer .5s forwards;
 }
 @keyframes menuaparecer{
     from{
         transform: translateX(-110%);
     }
     to{
-        transform: translateX(-5%);
+        transform: translateX(0%);
     }
 }
 .userinfo{
@@ -397,7 +432,6 @@
     flex-direction: column;
     color: white;
 }
-/* botao que desliza la no menu :D */
 /* The switch - the box around the slider */
 .switch {
     position: relative;
@@ -452,6 +486,15 @@ input:checked + .slider:before {
 .slider.round:before {
     border-radius: 50%;
 }
+
+
+
+
+
+
+
+
+/* tela local/selecão carro */
 .localbg{
     background: #222222;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
@@ -555,6 +598,17 @@ input:checked + .slider:before {
     width: 25px;
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.32));
 }
+
+
+
+
+
+
+
+
+
+
+/* tela confirmar local/carro selecionado */
 .localconfirmbg{
     background: #222222;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
@@ -604,6 +658,16 @@ input:checked + .slider:before {
 .btnlocal{
     margin-top: 50px;
 }
+
+
+
+
+
+
+
+
+
+/* tela de carregamento */
 .loadbg{
     background: rgba(6, 61, 255, 0.87);
 }
@@ -650,6 +714,17 @@ input:checked + .slider:before {
     box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.55);
     border-radius: 10px;
 }
+
+
+
+
+
+
+
+
+
+
+/* tela motorista encontrado */
 .driverfoundbg{
     margin-top: calc(100% - -10vh);
 }
@@ -734,6 +809,16 @@ input:checked + .slider:before {
         transform: scale(1);
     }
 }
+
+
+
+
+
+
+
+
+
+/* tela historico/chat */
 #chat:checked ~ #historico,
 #historico:checked ~ #chat{
     display: none;
