@@ -49,7 +49,7 @@
     <title>Teste</title>
 </head>
 
-<body>
+<body onload="userInfoProfile()">
     <div class="page content row-center">
         <!-- header voltar/jump -->
         <div class="header padding" style="animation: inicio .3s;">
@@ -57,7 +57,7 @@
                 <button class="icon ion-android-arrow-back" onclick="backPage()"></button>
             </div>
             <div class="right">
-                <button class="text-white" onclick="window.location.href = 'inapp.html'">Jump</button>
+                <button class="text-white" onclick="alterar()">Next</button>
             </div>
         </div>
         <div class="perfilbg">
@@ -70,7 +70,7 @@
                     <div class="btneditimg">
                         <i style="color: white;" class="fas fa-edit"></i>
                     </div>                     
-                    <h1 class="row text-white usernameperfil" style="font-size:25px">Name</h1>
+                    <input type="email" class="inputPerfilNome" name="usuarioEmail" id="nomeUsuario" placeholder="Qual o seu Nome?">
                 </div>
                 <div class="row text-black especselect">
                     <div class="row">
@@ -83,28 +83,28 @@
             </div>
             <!-- dados do usuario  -->
             <div class="list userdatabg">
-                <div class="item data">
-                    <h1 class="text-white" style="font-size:20px">E-mail</h1>
+                <div class="item">
+                    <h1 class="text-white" style="font-size:.9em">E-mail</h1>
                     <div class="right">
-                        <h1 class="text-grey" style="font-size:15px">adressExample@domain</h1>
+                        <input type="email" class="inputPerfil" name="usuarioEmail" id="emailUsuario" disabled>
                     </div>
                 </div>
                 <div class="item">
-                    <h1 class="text-white" style="font-size:20px">Phone</h1>
+                    <h1 class="text-white" style="font-size:.9em">Phone</h1>
                     <div class="right">
-                        <h1 class="text-grey" style="font-size:15px">+55 (13) 99234-5678</h1>
+                        <input type="tel" class="inputPerfil" name="usuarioTelefone" id="telefoneUsuario" disabled>
                     </div>
                 </div>
                 <div class="item">
-                    <h1 class="text-white" style="font-size:20px">Birth</h1>
+                    <h1 class="text-white" style="font-size:.9em">Birth</h1>
                     <div class="right">
-                        <h1 class="text-grey" style="font-size:15px">14/08/2002</h1>
+                        <input type="date" class="inputPerfil" name="usuarioTelefone" id="dataUsuario">
                     </div>
                 </div>
                 <div class="item">
-                    <h1 class="text-white" style="font-size:20px">Password</h1>
+                    <h1 class="text-white" style="font-size:.9em">Password</h1>
                     <div class="right">
-                        <h1 class="text-grey" style="font-size:15px">***********</h1>
+                        <input type="password" class="inputPerfil" name="usuarioTelefone" id="senhaUsuario" disabled>
                     </div>
                 </div>
             </div>

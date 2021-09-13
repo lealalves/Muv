@@ -1,8 +1,48 @@
-function userInfo(){
+function userInfoProfile(){
     $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php',function(result){
-        let input = document.querySelector('#nomeusuario')
-        input.innerHTML = result.email
+        let inputName = document.querySelector('#nomeUsuario');
+        let inputEmail = document.querySelector('#emailUsuario');
+        let inputTelefone = document.querySelector('#telefoneUsuario');
+        let inputData = document.querySelector('#dataUsuario');
+        let inputSenha = document.querySelector('#senhaUsuario');
+        inputName.value = result.nome;
+        inputEmail.value = result.email;
+        inputTelefone.value = result.telefone;
+        inputData.value = result.aniversario;
+        inputSenha.value = result.senha;
     })  
+}
+
+function showUserName(){
+    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php',function(result){
+        let inputName = document.querySelector('#nomeUsuario');
+        inputName.innerHTML = result.nome;
+    })  
+}
+function alterar(){
+    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php',function(result){
+        let email = $('#emailUsuario').val();
+        let telefone = $('#telefoneUsuario').val();
+        let senha = $('#senhaUsuario').val();
+        let data = $('#dataUsuario').val();
+        let nome = $('#nomeUsuario').val();
+        let string = `email=${email}&telefone=${telefone}&senha=${senha}&data=${data}&nome=${nome}&update=`;
+        $.ajax({
+            type: "POST",
+            crossDomain: true, 
+            cache: false,
+            url: 'http://127.0.0.1/Muv/www/php/alterar.php',
+            data: string,
+            success: function(data){
+                if($.trim(data) == "error"){
+                    console.log('n foi');                   
+                }else{
+                    window.location.href = 'inapp.html';
+                    console.log('foi')                  
+                }                                        
+            }                       
+        });       
+    })
 }
 
 function logout(){
@@ -31,8 +71,8 @@ function login() {
                 if($.trim(data) == "error"){
                     $(".inputlogin").toggleClass("error");                   
                 }else{
-                    userInfo();
-                    window.location.href = 'menu.html';                    
+                    showUserName();
+                    window.location.href = 'inapp.html';                    
                 }                                        
             }                       
         });
@@ -54,7 +94,9 @@ function cadastrar() {
             crossDomain: true,
             cache: false,
             success: function(data) {
-                if($.trim(data) == "error") {                            
+                debugger;
+                if($.trim(data) == "error") {
+                        $(".inputlogin").toggleClass("error");
                     }else{
                         window.location.href = 'especificacao.html'
                     }

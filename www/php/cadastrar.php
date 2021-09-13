@@ -10,8 +10,9 @@ include 'conexao.php';
 
         if($query){
             echo 'success';
-        }
-            
+            if(!isset($_SESSION)) session_start();
+            $_SESSION['emailUser'] = $email;
+        }            
         else{
            echo 'error';
         }
