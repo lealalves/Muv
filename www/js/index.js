@@ -20,29 +20,28 @@ function showUserName(){
     })  
 }
 function alterar(){
-    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php',function(result){
-        let email = $('#emailUsuario').val();
-        let telefone = $('#telefoneUsuario').val();
-        let senha = $('#senhaUsuario').val();
-        let data = $('#dataUsuario').val();
-        let nome = $('#nomeUsuario').val();
-        let string = `email=${email}&telefone=${telefone}&senha=${senha}&data=${data}&nome=${nome}&update=`;
-        $.ajax({
-            type: "POST",
-            crossDomain: true, 
-            cache: false,
-            url: 'http://127.0.0.1/Muv/www/php/alterar.php',
-            data: string,
-            success: function(data){
-                if($.trim(data) == "error"){
-                    console.log('n foi');                   
-                }else{
-                    window.location.href = 'inapp.html';
-                    console.log('foi')                  
-                }                                        
-            }                       
-        });       
-    })
+    
+    let email = $('#emailUsuario').val();
+    let telefone = $('#telefoneUsuario').val();
+    let senha = $('#senhaUsuario').val();
+    let data = $('#dataUsuario').val();
+    let nome = $('#nomeUsuario').val();
+    let string = `email=${email}&telefone=${telefone}&senha=${senha}&data=${data}&nome=${nome}&update=`;
+    $.ajax({
+        type: "POST",
+        crossDomain: true, 
+        cache: false,
+        url: 'http://127.0.0.1/Muv/www/php/alterar.php',
+        data: string,
+        success: function(data){
+            if($.trim(data) == "error"){
+                console.log('n foi');                   
+            }else{
+                window.location.href = 'inapp.html';
+                console.log('foi')                  
+            }                                        
+        }                       
+    });
 }
 
 function logout(){

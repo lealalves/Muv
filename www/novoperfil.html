@@ -39,8 +39,8 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <script src="js/jquery.js"></script>
     <script src="mobileui/mobileui.js"></script>
@@ -56,6 +56,9 @@
             <div class="left">
                 <button class="icon ion-android-arrow-back" onclick="backPage()"></button>
             </div>
+            <div class="right">
+                <button class="text-white" onclick="alterar()">Next</button>
+            </div>
         </div>
         <div class="perfilbg">
             <!-- foto de perfil -->
@@ -68,7 +71,7 @@
                         <i style="color: white;" class="fas fa-edit"></i>
                     </div>
                     <div class="row">
-                        <input type="email" class="inputPerfilNome" name="usuarioNome" id="nomeUsuario">
+                        <input type="email" class="inputPerfilNome" name="usuarioNome" id="nomeUsuario" placeholder="Qual o seu nome?">
                     </div>                    
                 </div>
                 <div class="row text-black especselect">

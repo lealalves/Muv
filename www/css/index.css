@@ -257,9 +257,10 @@
     }
 }
 .avatarperfil{
-    width: 35vw;
+    width: 8em;
     border: 2px solid #22FFAF;
     border-radius: 50%;
+    margin-bottom: 5px;
     box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
 }
 .perfiltopo{
@@ -280,19 +281,28 @@
     margin-bottom: 5vw;
 }
 .userdatabg{
+    flex-direction: column;
     width: 270px;
     margin: auto;
     border: none;
-    margin-bottom: 10vw;
+    margin-top: 1.5em;
+    margin-bottom: 1.5em;
+    font-size: 1.3em;
 }
-.item{
-    border-bottom: 1px solid #B2B2B2 !important ;
+.userdatabg .row{
+    padding: 5px;
+    align-items: center;
+    justify-content: space-between;
 }
 .btneditimg{
-    position: relative;
-    padding: 5px;
-    margin-left: 30vw;
-    margin-top: -2rem;
+    width: 120px;
+    justify-content: flex-end;
+    margin-top: -16px;
+}
+.btneditimgperfil{
+    width: 120px;
+    justify-content: flex-end;
+    margin-top: -32px;
 }
 .especselect{
     width: 150px;
@@ -314,6 +324,7 @@
     padding: 5px;
 }
 .separador{
+    margin: 5px;
     border-top: 1px solid #B2B2B2;
 }
 
