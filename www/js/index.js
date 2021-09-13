@@ -94,7 +94,6 @@ function cadastrar() {
             crossDomain: true,
             cache: false,
             success: function(data) {
-                debugger;
                 if($.trim(data) == "error") {
                         $(".inputlogin").toggleClass("error");
                     }else{
@@ -151,7 +150,7 @@ function swiperFunc(){
 
 
 
-function userOptionScreens(){
+function slideMenuHistoricoChat(){
     let input = document.querySelectorAll('.optionsradio')
 
             input.forEach(item =>{

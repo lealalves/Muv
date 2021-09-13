@@ -49,7 +49,7 @@
     <title>Teste</title>
 </head>
 
-<body onload="userOptionScreens()" style="background-color: grey;">
+<body onload="showUserName(), slideMenuHistoricoChat()" style="background-color: grey;">
     <div class="content page">
         <!-- header -->
         <div class="header" style="animation: inicio .3s;">
@@ -61,7 +61,7 @@
                     <img src="img/smallavatar.png" class="optionsavatar">
                 </div>
                 <div class="row userlevel">
-                    <p style="font-size:18px">Name</p>
+                    <p class="row text-white" id="nomeUsuario" style="font-size:1em"></p>
                     <p style="font-size:12px">Level 4/45%</p>
                 </div>
                 <div class="row">
