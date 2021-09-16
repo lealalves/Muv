@@ -44,30 +44,37 @@
     <script src="mobileui/mobileui.js"></script>
     <script src="js/index.js"></script>
     <script src="js/all.js"></script>
+    <script src="swiper/swiper-bundle.min.js"></script>
     <title>Teste</title>
 </head>
 
 <body>
-    <div class="content bginicial">
+    <div class="content bginicial transicao">
         <!-- header botao menu/usuario  -->
         <div class="header">
             <div class="row inappheader">
                 <div class="row inappmenuicon">
                     <i style="color: white;" class="fas fa-bars fa-lg" onclick="openPage('menu')"></i>
                 </div>                
-                <img class="avatarinapp" src="img/avatar1.png" onclick="openPage('useroption')">
+                <img class="avatarinapp" src="img/avatar1.png" onclick="window.location.href = 'useroption.html'">
             </div>
         </div>
         <!-- barra de pesquisa -->
         <div class="row barradepesquisa">
             <div class="row">
                 <div class="row bar">
-                    <input class="searchbar" type="text" title="Search">
+                    <input class="searchbar" type="text" title="Search" onclick="openPage('localselect')">
                     <a href="#"><img class="row voice" src="img/iconmic.png" title="Search by Voice"></a>
                 </div>
             </div>
         </div>        
     </div>
 </body>
-
+<script>     
+    document.addEventListener('openPage', function(e){
+        showUserName()
+        slideMenuHistoricoChat()
+        swiperFunc()
+})
+</script>
 </html>
