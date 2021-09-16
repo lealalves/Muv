@@ -5,12 +5,14 @@ function userInfoProfile(){
         let inputTelefone = document.querySelector('#telefoneUsuario');
         let inputData = document.querySelector('#dataUsuario');
         let inputSenha = document.querySelector('#senhaUsuario');
+        let especTxt = document.querySelector('.txtespec');
+        especTxt.innerHTML = result.especificacao;  
         inputName.value = result.nome;
         inputEmail.value = result.email;
         inputTelefone.value = result.telefone;
         inputData.value = result.aniversario;
         inputSenha.value = result.senha;
-    })  
+    })
 }
 
 function showUserName(){
@@ -111,10 +113,10 @@ function cadastrar() {
 
 
 function validarEspec(){
-    var opcoes = document.querySelectorAll("input[type='checkbox']")
+    var opcoes = document.querySelectorAll("input[type='radio']")
     opcoes.forEach(function(ck){
         ck.addEventListener("click", function(){
-            let checked = document.querySelectorAll("input[type = 'checkbox']:checked").length
+            let checked = document.querySelectorAll("input[type = 'checkbox']:checked")
             var btn = document.querySelector(".btnespec")
             if(checked != 0){
                 btn.classList.add("show")
@@ -163,4 +165,31 @@ function slideMenuHistoricoChat(){
                     
                 })
             })
+}
+
+
+function selectedEspec(){
+    let radioespec = document.querySelectorAll("input[type='radio']")
+    let selectEspec = '';
+    if(radioespec[0].checked) selectEspec = 'visually impaired';
+    else if(radioespec[1].checked) selectEspec = 'hearing impaired';
+    else if(radioespec[2].checked) selectEspec = 'i am disabled';
+    
+    let string = `espec=${selectEspec}&update=`
+    $.ajax({
+        type: "POST",
+        crossDomain: true, 
+        cache: false,
+        url: 'http://127.0.0.1/Muv/www/php/alterarEspec.php',
+        data: string,
+        success: function(data){
+            debugger;
+            if($.trim(data) == "error"){                
+                console.log('n foi');                   
+            }else{
+                console.log('foi') 
+                window.location.href = 'novoperfil.html'                 
+            }                                        
+        }                       
+    });
 }
