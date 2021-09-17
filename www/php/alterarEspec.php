@@ -2,12 +2,12 @@
 
 include 'conexao.php';
 
-if(!isset($_SESSION)) session_start();
+session_start();
 
-$email = $_SESSION['emailUser'];
+$codUser = $_SESSION['codUser'];
 $espec = $_POST['espec'];
 
-$query = mysqli_query($con,"update usuario set especificacao='$espec' where email='$email'");
+$query = mysqli_query($con,"update usuario set especificacao='$espec' where codUser='$codUser'");
     if($query){
         echo 'success';
     }else{

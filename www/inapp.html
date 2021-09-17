@@ -49,7 +49,7 @@
 </head>
 
 <body>
-    <div class="content bginicial transicao">
+    <div id="home" class="content bginicial transicao">
         <!-- header botao menu/usuario  -->
         <div class="header">
             <div class="row inappheader">
@@ -70,7 +70,10 @@
         </div>        
     </div>
 </body>
-<script>     
+<script>
+    document.getElementById('home').addEventListener('click', function(){
+        backPage()
+    })     
     document.addEventListener('openPage', function(e){
         showUserName()
         slideMenuHistoricoChat()

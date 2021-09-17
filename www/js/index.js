@@ -39,8 +39,7 @@ function alterar(){
             if($.trim(data) == "error"){
                 console.log('n foi');                   
             }else{
-                window.location.href = 'inapp.html';
-                console.log('foi')                  
+                window.location.href = 'inapp.html'                 
             }                                        
         }                       
     });
@@ -183,7 +182,6 @@ function selectedEspec(){
         url: 'http://127.0.0.1/Muv/www/php/alterarEspec.php',
         data: string,
         success: function(data){
-            debugger;
             if($.trim(data) == "error"){                
                 console.log('n foi');                   
             }else{
