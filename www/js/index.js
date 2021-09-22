@@ -200,7 +200,7 @@ document.addEventListener('deviceready',iniciar)
 function iniciar(){
     navigator.geolocation.getCurrentPosition(geoSucess,geoError)
 }
-
+// definindo o local atual
 function geoSucess(dados){
     var lat = dados.coords.latitude
     var lon = dados.coords.longitude
@@ -246,8 +246,30 @@ function initMap() {
     var marker = new google.maps.Marker({
         position: meulocal,
         map: map,
-        title: 'Seu Local Atual!'
+        animation: google.maps.Animation.DROP
     });
+
+    marker.addListener("click", toggleBounce);
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
+
+    const contentString = '<h1>Seu local atual!</h1>';
+
+    const infowindow = new google.maps.InfoWindow({
+        content: contentString,
+    });
+
+    infowindow.open({
+        anchor: marker,
+        map,
+        shouldFocus: false,
+    });
+
 }
 
 
@@ -269,8 +291,16 @@ function initAutoComplete() {
     var marker = new google.maps.Marker({
         position: meulocal,
         map: map,
-        title: 'Seu Local Atual!'
+        animation: google.maps.Animation.DROP
     });
+    marker.addListener("click", toggleBounce);
+    function toggleBounce() {
+        if (marker.getAnimation() !== null) {
+          marker.setAnimation(null);
+        } else {
+          marker.setAnimation(google.maps.Animation.BOUNCE);
+        }
+      }
 
     const input = document.getElementById("destino-input");
     const searchBox = new google.maps.places.SearchBox(input);
@@ -282,7 +312,7 @@ function initAutoComplete() {
     map.addListener("bounds_changed", () => {
         searchBox.setBounds(map.getBounds());
     });
-
+    // apos definir o destino :
     searchBox.addListener("places_changed", () => {
         const places = searchBox.getPlaces();
     
