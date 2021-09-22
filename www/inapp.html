@@ -60,7 +60,7 @@
                 <img class="avatarinapp" src="img/avatar1.png" onclick="window.location.href = 'useroption.html'">
             </div>
         </div>
-        <div id="map"></div>
+        <div id="map" onclick="backPage()"></div>
         <!-- barra de pesquisa -->
         <div class="row barradepesquisa">            
             <div class="row">                
@@ -75,15 +75,23 @@
 <!-- <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk&callback=initMap"></script> -->
 <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk&callback=initAutocomplete&libraries=places&v=weekly" async></script>
 <script>
-    // document.getElementById('home').addEventListener('click', function(){
-    //     backPage()
-    // })     
-    document.addEventListener('openPage', function(e){
-        showUserName()
-        slideMenuHistoricoChat()
-        swiperFunc()
-        initMap()
-        initAutoComplete()
+    document.addEventListener('backPage', function(e){
+        if(e.detail.page == 'localselect.html'){
+            initMap()
+            $('.inappheader').show()
+        }
+    })  
+    document.addEventListener('openPage', function(e){        
+        if(e.detail.page == 'menu.html'){
+            showUserName()
+        }        
+        if(e.detail.page == 'localselect.html'){
+            initAutoComplete()
+            swiperFunc()
+            $('.inappheader').hide()
+
+        }
+        
 })
 </script>
 </html>
