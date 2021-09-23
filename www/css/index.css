@@ -569,12 +569,54 @@ input:checked + .slider:before {
     filter: drop-shadow(0px 4px 4px rgba(0, 0, 0, 0.32));
 }
 .localconfirmbg{
-    background: #222222;
+    flex-direction: column;
+    align-items: center;
+    background: #0D1016;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
     border-radius: 15px 15px 0px 0px;
     width: 100vw;
     height: 100vh; 
     animation: localconfirmaparecer .5s forwards;
+}
+.localconfirmimg{
+    margin-top: 3.5em;
+    margin-bottom: 2em;
+}
+.localstreetinfo{
+    width: 315px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 2em;
+    border-bottom: 1px solid grey;
+}
+.localstreetinfo .racetimeinfo .row{
+    padding: 10px;
+}
+.divisorialocalconfirm{   
+    height: 1px;
+    width: 315px;
+    background: #202736;
+}
+.paymentinfobg{
+    width: 315px;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 3em;
+}
+.paymentinfo{
+    flex-direction: column;
+}
+.paymentinfo .cardinfo{
+    align-items: center;
+}
+.paymentinfo .cardinfo .row{
+    padding: 10px;
+}
+.paymentinfo .moneyinfo{
+    align-items: center;
+}
+.paymentinfo .moneyinfo .row{
+    padding: 10px;
 }
 @keyframes localconfirmaparecer{
     from{
@@ -583,10 +625,6 @@ input:checked + .slider:before {
     to{
         transform: translateY(25%);
     }
-}
-.localconfirmimg{
-    margin-top: 40px;
-    margin-bottom: 70px;
 }
 .divisoria{
     width: 300px;
@@ -604,18 +642,23 @@ input:checked + .slider:before {
     background: #DFDFDF;
     border-radius: 10px;
 }
-.iconconfirm{
-    margin-right: 10px;
-}
-.btnconfirmlocal01{
+.btncancellocal{
     width: 85px;
-    color: white;
-    border: 1px solid #063DFF;
+    color: #ADADAD;
+    border: 1px solid #ADADAD;
     box-sizing: border-box;
     border-radius: 10px;
 }
+.btnconfirmlocal{
+    background: #063DFF;
+    box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);
+    color: white;
+    border-radius: 10px;
+    width: 85px;
+}
 .btnlocal{
-    margin-top: 50px;
+    width: 280px;
+    justify-content: space-between;
 }
 .loadbg{
     background: rgba(6, 61, 255, 0.87);
@@ -657,10 +700,9 @@ input:checked + .slider:before {
 }
 .btnload{
     position: absolute;
-    top: 600px;
-    color: #001358;
+    bottom: 5em;
+    color: #0038FF;
     background: #FFFFFF;
-    box-shadow: 0px 10px 20px rgba(0, 0, 0, 0.55);
     border-radius: 10px;
 }
 .driverfoundbg{
@@ -931,3 +973,6 @@ input[type=radio]{
         flex-direction: column;
     }
 }
+
+
+
