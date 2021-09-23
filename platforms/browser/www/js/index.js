@@ -1,12 +1,12 @@
-function userInfoProfile(){
-    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php',function(result){
+function userInfoProfile() {
+    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php', function (result) {
         let inputName = document.querySelector('#nomeUsuario');
         let inputEmail = document.querySelector('#emailUsuario');
         let inputTelefone = document.querySelector('#telefoneUsuario');
         let inputData = document.querySelector('#dataUsuario');
         let inputSenha = document.querySelector('#senhaUsuario');
         let especTxt = document.querySelector('.txtespec');
-        especTxt.innerHTML = result.especificacao;  
+        especTxt.innerHTML = result.especificacao;
         inputName.value = result.nome;
         inputEmail.value = result.email;
         inputTelefone.value = result.telefone;
@@ -15,14 +15,14 @@ function userInfoProfile(){
     })
 }
 
-function showUserName(){
-    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php',function(result){
+function showUserName() {
+    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php', function (result) {
         let inputName = document.querySelector('#nomeUsuario');
         inputName.innerHTML = result.nome;
-    })  
+    })
 }
-function alterar(){
-    
+function alterar() {
+
     let email = $('#emailUsuario').val();
     let telefone = $('#telefoneUsuario').val();
     let senha = $('#senhaUsuario').val();
@@ -31,26 +31,26 @@ function alterar(){
     let string = `email=${email}&telefone=${telefone}&senha=${senha}&data=${data}&nome=${nome}&update=`;
     $.ajax({
         type: "POST",
-        crossDomain: true, 
+        crossDomain: true,
         cache: false,
         url: 'http://127.0.0.1/Muv/www/php/alterar.php',
         data: string,
-        success: function(data){
-            if($.trim(data) == "error"){
-                console.log('n foi');                   
-            }else{
-                window.location.href = 'inapp.html'                 
-            }                                        
-        }                       
+        success: function (data) {
+            if ($.trim(data) == "error") {
+                console.log('n foi');
+            } else {
+                window.location.href = 'inapp.html'
+            }
+        }
     });
 }
 
-function logout(){
+function logout() {
     var url = 'http://127.0.0.1/Muv/www/php/logout.php'
     $.ajax({
         url: url,
         data: url,
-        success: function(data){
+        success: function (data) {
             window.location.href = data;
         }
     })
@@ -60,24 +60,24 @@ function login() {
     var email = $('#email').val();
     var senha = $('#password').val()
     var url = `http://127.0.0.1/Muv/www/php/login.php?email=${email}&senha=${senha}`;
-    if($.trim(email).length > 0 & $.trim(senha).length > 0){
+    if ($.trim(email).length > 0 & $.trim(senha).length > 0) {
         $.ajax({
             type: "POST",
-            crossDomain: true, 
+            crossDomain: true,
             cache: false,
             url: url,
             data: url,
-            success: function(data){
-                if($.trim(data) == "error"){
-                    $(".inputlogin").toggleClass("error");                   
-                }else{
+            success: function (data) {
+                if ($.trim(data) == "error") {
+                    $(".inputlogin").toggleClass("error");
+                } else {
                     showUserName();
-                    window.location.href = 'inapp.html';                    
-                }                                        
-            }                       
+                    window.location.href = 'inapp.html';
+                }
+            }
         });
-    }else $(".inputlogin").toggleClass("error");
-        
+    } else $(".inputlogin").toggleClass("error");
+
 }
 
 function cadastrar() {
@@ -86,40 +86,40 @@ function cadastrar() {
     var telefone = $('#phonenumber').val();
     var string = `email=${email}&senha=${senha}&telefone=${telefone}&insert=`;
 
-    if($.trim(email).length > 0 & $.trim(senha).length > 0 & $.trim(telefone).length > 0) {
+    if ($.trim(email).length > 0 & $.trim(senha).length > 0 & $.trim(telefone).length > 0) {
         $.ajax({
             type: "POST",
             url: "http://127.0.0.1/Muv/www/php/cadastrar.php",
             data: string,
             crossDomain: true,
             cache: false,
-            success: function(data) {
-                if($.trim(data) == "error") {
-                        $(".inputlogin").toggleClass("error");
-                    }else{
-                        window.location.href = 'especificacao.html'
-                    }
+            success: function (data) {
+                if ($.trim(data) == "error") {
+                    $(".inputlogin").toggleClass("error");
+                } else {
+                    window.location.href = 'especificacao.html'
                 }
-            });                
-        }else{
-            $(".inputlogin").toggleClass("error");
-        }        
+            }
+        });
+    } else {
+        $(".inputlogin").toggleClass("error");
     }
+}
 
 
 
 
 
 
-function validarEspec(){
+function validarEspec() {
     var opcoes = document.querySelectorAll("input[type='radio']")
-    opcoes.forEach(function(ck){
-        ck.addEventListener("click", function(){
+    opcoes.forEach(function (ck) {
+        ck.addEventListener("click", function () {
             let checked = document.querySelectorAll("input[type = 'checkbox']:checked")
             var btn = document.querySelector(".btnespec")
-            if(checked != 0){
+            if (checked != 0) {
                 btn.classList.add("show")
-            }else{
+            } else {
                 btn.classList.remove("show")
             }
         })
@@ -134,13 +134,13 @@ function validarEspec(){
 
 
 
-function swiperFunc(){
+function swiperFunc() {
     var swiper = new Swiper(".mySwiper", {
         slidesPerView: 2,
         loop: false,
         spaceBetween: 50,
-        centeredSlides: true          
-      });
+        centeredSlides: true
+    });
 }
 
 
@@ -150,94 +150,94 @@ function swiperFunc(){
 
 
 
-function slideMenuHistoricoChat(){
+function slideMenuHistoricoChat() {
     let input = document.querySelectorAll('.optionsradio')
 
-            input.forEach(item =>{
-                item.addEventListener('click',function(){
-                    let container = document.querySelector(".container-menu")
-                    if(input[1].checked == true && input[0].checked == false){                     
-                        container.classList.add('movetohistoric')
-                    }else{
-                        container.classList.remove('movetohistoric')
-                    }
-                    
-                })
-            })
+    input.forEach(item => {
+        item.addEventListener('click', function () {
+            let container = document.querySelector(".container-menu")
+            if (input[1].checked == true && input[0].checked == false) {
+                container.classList.add('movetohistoric')
+            } else {
+                container.classList.remove('movetohistoric')
+            }
+
+        })
+    })
 }
 
 
-function selectedEspec(){
+function selectedEspec() {
     let radioespec = document.querySelectorAll("input[type='radio']")
     let selectEspec = '';
-    if(radioespec[0].checked) selectEspec = 'visually impaired';
-    else if(radioespec[1].checked) selectEspec = 'hearing impaired';
-    else if(radioespec[2].checked) selectEspec = 'i am disabled';
-    
+    if (radioespec[0].checked) selectEspec = 'visually impaired';
+    else if (radioespec[1].checked) selectEspec = 'hearing impaired';
+    else if (radioespec[2].checked) selectEspec = 'i am disabled';
+
     let string = `espec=${selectEspec}&update=`
     $.ajax({
         type: "POST",
-        crossDomain: true, 
+        crossDomain: true,
         cache: false,
         url: 'http://127.0.0.1/Muv/www/php/alterarEspec.php',
         data: string,
-        success: function(data){
-            if($.trim(data) == "error"){                
-                console.log('n foi');                   
-            }else{
-                console.log('foi') 
-                window.location.href = 'novoperfil.html'                 
-            }                                        
-        }                       
+        success: function (data) {
+            if ($.trim(data) == "error") {
+                console.log('n foi');
+            } else {
+                console.log('foi')
+                window.location.href = 'novoperfil.html'
+            }
+        }
     });
 }
 
 
 
 // funções mapa 
-document.addEventListener('deviceready',iniciar)
+document.addEventListener('deviceready', iniciar)
 
-function iniciar(){
-    navigator.geolocation.getCurrentPosition(geoSucess,geoError)
+function iniciar() {
+    navigator.geolocation.getCurrentPosition(geoSucess, geoError)
 }
 // definindo o local atual
-function geoSucess(dados){
+function geoSucess(dados) {
     var lat = dados.coords.latitude
     var lon = dados.coords.longitude
 
     localStorage.setItem('latitu', lat)
     localStorage.setItem('longitu', lon)
-   
+
     var url = "https://maps.googleapis.com/maps/api/geocode/json?latlng=";
     url += lat + ",";
     url += lon + "&key=";
     url += "AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk";
-                        
-    
-        $.ajax({
-        dataType:"json",
-        url:url,
-        error:function(e){
-            console.log("errou"+e);
+
+
+    $.ajax({
+        dataType: "json",
+        url: url,
+        error: function (e) {
+            console.log("errou" + e);
         },
-        success: function(r){
-            console.log("foi!"+r);
+        success: function (r) {
+            console.log("foi!" + r);
             initMap();
         }
     })
 
 }
 
-function geoError(e){
-    navigator.notification.alert('Houve um erro:' + e.message,' ', 'Erro')
+function geoError(e) {
+    navigator.notification.alert('Houve um erro:' + e.message, ' ', 'Erro')
 }
 
 // mapa tela inicial
-function initMap() {	 
-    var lat= parseFloat(localStorage.getItem('latitu'));
-    var lon= parseFloat(localStorage.getItem('longitu')); 
-	  
-    var meulocal = {lat: lat, lng: lon};
+function initMap() {
+    var lat = parseFloat(localStorage.getItem('latitu'));
+    var lon = parseFloat(localStorage.getItem('longitu'));
+
+    var meulocal = { lat: lat, lng: lon };
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 16,
         center: meulocal,
@@ -252,11 +252,11 @@ function initMap() {
     marker.addListener("click", toggleBounce);
     function toggleBounce() {
         if (marker.getAnimation() !== null) {
-          marker.setAnimation(null);
+            marker.setAnimation(null);
         } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
+            marker.setAnimation(google.maps.Animation.BOUNCE);
         }
-      }
+    }
 
     const contentString = '<h1>Seu local atual!</h1>';
 
@@ -277,10 +277,10 @@ function initMap() {
 // mapa tela seleção local
 function initAutoComplete() {
 
-    var lat= parseFloat(localStorage.getItem('latitu'));
-    var lon= parseFloat(localStorage.getItem('longitu')); 
-	  
-    var meulocal = {lat: lat, lng: lon};
+    var lat = parseFloat(localStorage.getItem('latitu'));
+    var lon = parseFloat(localStorage.getItem('longitu'));
+
+    var meulocal = { lat: lat, lng: lon };
 
     var map = new google.maps.Map(document.getElementById('map'), {
         zoom: 14,
@@ -296,17 +296,14 @@ function initAutoComplete() {
     marker.addListener("click", toggleBounce);
     function toggleBounce() {
         if (marker.getAnimation() !== null) {
-          marker.setAnimation(null);
+            marker.setAnimation(null);
         } else {
-          marker.setAnimation(google.maps.Animation.BOUNCE);
+            marker.setAnimation(google.maps.Animation.BOUNCE);
         }
-      }
+    }
 
     const input = document.getElementById("destino-input");
     const searchBox = new google.maps.places.SearchBox(input);
-    
-    const directionsDisplay = new google.maps.DirectionsRenderer();
-    const directionsService = new google.maps.DirectionsService();
 
     // Bias the SearchBox results towards current map's viewport.
     map.addListener("bounds_changed", () => {
@@ -314,50 +311,49 @@ function initAutoComplete() {
     });
     // apos definir o destino :
     searchBox.addListener("places_changed", () => {
+
         const places = searchBox.getPlaces();
-    
+
         if (places.length == 0) {
-          return;
-        }    
+            return;
+        }
         // For each place, get the icon, name and location.
         const bounds = new google.maps.LatLngBounds();
-    
+
         places.forEach((place) => {
-        if (!place.geometry || !place.geometry.location) {
-            console.log("Returned place contains no geometry");
-            return;
-          }
-        if (place.geometry.viewport) {
-            // Only geocodes have viewport.
-            bounds.union(place.geometry.viewport);
-          } else {
-            bounds.extend(place.geometry.location);
-          }          
-        });        
-        map.fitBounds(bounds);        
+            if (!place.geometry || !place.geometry.location) {
+                console.log("Returned place contains no geometry");
+                return;
+            }
+            if (place.geometry.viewport) {
+                // Only geocodes have viewport.
+                bounds.union(place.geometry.viewport);
+            } else {
+                bounds.extend(place.geometry.location);
+            }
+        });
+
+        const directionsDisplay = new google.maps.DirectionsRenderer();
+        const directionsService = new google.maps.DirectionsService();
 
         const destino = places[0].formatted_address
 
         if (marker) marker.setMap(null);
-			
-        directionsDisplay.setMap(map);
-        directionsDisplay.setPanel(document.getElementById("directions"));
 
-        route = true;
+        directionsDisplay.setMap(map);
+
         var start = meulocal;
         var end = destino;
-        
+
         var request = {
-            origin: start, 
+            origin: start,
             destination: end,
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
-        directionsService.route(request, function(response, status) {
+        directionsService.route(request, function (response, status) {
             if (status == google.maps.DirectionsStatus.OK)
                 directionsDisplay.setDirections(response);
+            console.log(response);
         });
-
-
-      });
-
+    });
 }
