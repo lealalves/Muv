@@ -27,7 +27,7 @@
     <meta name="msapplication-tap-highlight" content="no" />
     <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <!-- <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -37,62 +37,64 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
-    <link rel="stylesheet" type="text/css" href="css/index.css" />
+    
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css"/>
+    <link rel="stylesheet" type="text/css" href="css/index.css"/>
     <link rel="stylesheet" type="text/css" href="css/all.css">
-    <link rel="stylesheet" href="css/awselect.min.css" />
     <script src="js/jquery.js"></script>
     <script src="mobileui/mobileui.js"></script>
     <script src="js/index.js"></script>
     <script src="js/all.js"></script>
-    <script src="cordova.js"></script>
-    <script src="swiper/swiper-bundle.min.js"></script>
-    <script type="text/javascript" src="js/awselect.min.js"></script>
     <title>Teste</title>
 </head>
 
 <body>
-    <div class="content transicao">
-        <!-- header botao menu/usuario  -->
-        <div class="header">
-            <div class="row inappheader">
-                <div class="row inappmenuicon">
-                    <i style="color: white;" class="fas fa-bars fa-lg" onclick="openPage('menu')"></i>
+    <div class="content row-center align-center transicao bgapp">
+        <div class="col">
+            <h1 class="row horizontal-align-center text-white" style="font-size:48px">
+                Login
+            </h1>
+            <div class="loginbg">
+                <!-- input login -->
+                <div class="row horizontal-align-center">
+                    <div class="row">
+                        <input type="text" class="inputlogin" id="email" placeholder="E-mail">
+                    </div>
                 </div>
-                <img class="avatarinapp" src="img/avatar1.png" onclick="window.location.href = 'useroption.html'">
+                <div class="space"></div>
+                <!-- input senha -->
+                <div class="row horizontal-align-center">
+                    <div class="row">
+                        <input type="password" class="inputlogin" id="password" placeholder="Password">
+                    </div>
+                </div>
+                <div class="space"></div>
+                <!-- botao logar -->
+                <button class="btnlogin" onclick="login()">OK</button>
             </div>
-        </div>
-        <div id="map" onclick="backPage()"></div>
-        <!-- barra de pesquisa -->
-        <div class="row barradepesquisa">
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="space"></div>
             <div class="row">
-                <div class="row bar" onclick="openPage('localselect')">
-                    <input class="searchbar" type="text" title="Search" disabled>
-                    <a href="#"><img class="row voice" src="img/iconmic.png" title="Search by Voice"></a>
+                <div class="col">
+                    <h4 class="text-white" style="font-size:13px">Don't you have an account yet?</h4>
                 </div>
+            </div>
+            <div class="row">
+                <div class="col">
+                    <a href="novaconta.html">
+                        <h4 class="text-blue" style="margin-top:10px;font-size:13px">Create an account</h4>
+                    </a>
+                </div>
+            </div>
+            <div class="space"></div>
+            <div class="space"></div>
+            <div class="logo">
+                <img class="imgmuvlogo" src="img/foguetinho.png">                      
+                <h4 class="muvtextlogo">muv</h4>
             </div>
         </div>
     </div>
 </body>
-<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk&callback=initAutocomplete&libraries=places&v=weekly" async></script>
-<script>
-    document.addEventListener('backPage', function(e) {
-        if (e.detail.page == 'localselect.html') {
-            initMap()
-            $('.inappheader').show()
-        }
-    })
-    document.addEventListener('openPage', function(e) {
-        if (e.detail.page == 'menu.html') {
-            showUserName()
-        }
-        if (e.detail.page == 'localselect.html') {
-            initAutoComplete()
-            swiperFunc()
-            selectAnimate()
-            $('.inappheader').hide()
-        }
-    })
-</script>
 
 </html>

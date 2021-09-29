@@ -17,7 +17,7 @@
     <title>Teste</title>
 </head>
 
-<body>
+<body onload="raceConfirmInfo()">
     <div class="page content">
         <div class="row localconfirmbg">
             <div class="row localconfirmimg">
@@ -25,14 +25,14 @@
             </div>
             <div class="row localstreetinfo">
                 <div class="row streetname">
-                    <p class="text-white" style="font-size:14px">St Adress Example</p>
+                    <p id="txtDestino" class="text-white" style="font-size:14px"></p>
                 </div>
                 <div class="row racetimeinfo">
                     <div class="row">
-                        <p class="text-white" style="font-size:14px">10min</p>
+                        <p id="txtTempo" class="text-white" style="font-size:14px"></p>
                     </div>
                     <div class="row">
-                        <p class="text-white" style="font-size:14px">14km</p>
+                        <p id="txtDistancia" class="text-white" style="font-size:14px"></p>
                     </div>
                 </div>                
             </div>

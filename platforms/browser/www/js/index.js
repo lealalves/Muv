@@ -222,7 +222,7 @@ function geoSucess(dados) {
             console.log("errou" + e);
         },
         success: function(r) {
-            console.log("foi!" + r);
+            console.log("foi!");
             initMap();
         }
     })
@@ -315,6 +315,12 @@ function initAutoComplete() {
     // apos definir o destino :
     searchBox.addListener("places_changed", () => {
 
+        $('.localselectoptions').fadeOut(100);
+        if($('.localselectoptions').fadeOut()){
+            $('.localsearchbg').height(60)
+        }
+
+
         const places = searchBox.getPlaces();
 
         if (places.length == 0) {
@@ -356,11 +362,48 @@ function initAutoComplete() {
         directionsService.route(request, function(response, status) {
             if (status == google.maps.DirectionsStatus.OK)
                 directionsDisplay.setDirections(response);
-            console.log(response);
+
+                let duracao = response.routes[0].legs[0].duration.text
+                let distancia = response.routes[0].legs[0].distance.text
+                let destino = response.routes[0].legs[0].end_address
+
+                let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}`
+
+                $.ajax({
+                    type: "POST",
+                    crossDomain: true,
+                    cache: false,
+                    url: 'http://127.0.0.1/Muv/www/php/preCorrida.php',
+                    data: string,
+                    success: function(data) {
+                        if ($.trim(data) == "error") {
+                            console.log('não foi')
+                        } else {
+                            console.log('dados da corrida gravados')                            
+                        }
+                    }
+                });
         });
     });
 }
 
+
+function raceConfirmInfo(){    
+    $.getJSON('http://127.0.0.1/Muv/www/php/preCorridaConsulta.php', function(result) {
+        console.log(result)
+        let txtDestino = document.getElementById('txtDestino')
+        let txtDistancia = document.getElementById('txtDistancia')
+        let txtTempo = document.getElementById('txtTempo')
+
+        txtDestino.innerHTML = result.endDestino;
+        txtDistancia.innerHTML = result.distancia;
+        txtTempo.innerHTML = result.tempo;
+
+    })
+}
+
+
+// script select animado
 function selectAnimate() {
     $('select').awselect({
         background: "#fff", //the dark blue background
