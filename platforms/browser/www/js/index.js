@@ -359,7 +359,7 @@ function initAutoComplete() {
         directionsService.route(request, function (response, status) {
             if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
-
+                $('.loadIcon').hide();
 
                 // calculo do preço
                 let t = response.routes[0].legs[0].duration.value
@@ -375,7 +375,7 @@ function initAutoComplete() {
                 let muvXTexto = document.getElementById('xclassePreco');
                 let muvMaxTexto = document.getElementById('maxclassePreco');
                 let muvNavTexto = document.getElementById('navclassePreco');
-
+                
                 muvXTexto.innerHTML = `R$${muvX.toFixed(2)}`;
                 muvMaxTexto.innerHTML = `R$${muvMax.toFixed(2)}`;
                 muvNavTexto.innerHTML = `R$${muvNav.toFixed(2)}`;
@@ -402,8 +402,9 @@ function initAutoComplete() {
                         let duracao = response.routes[0].legs[0].duration.text
                         let distancia = response.routes[0].legs[0].distance.text
                         let destino = response.routes[0].legs[0].end_address
+                        let origem = response.routes[0].legs[0].start_address
 
-                        let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}&preco=${preco}&classe=${classe}`
+                        let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}&origem=${origem}&preco=${preco}&classe=${classe}`
                         $.ajax({
                             type: "POST",
                             crossDomain: true,
@@ -426,7 +427,7 @@ function initAutoComplete() {
     });
 }
 
-
+// mostrar dados da corrida para confirmação
 function raceConfirmInfo() {
     $.getJSON('http://127.0.0.1/Muv/www/php/preCorridaConsulta.php', function (result) {
         let txtDestino = document.getElementById('txtDestino')
@@ -443,6 +444,25 @@ function raceConfirmInfo() {
 
     })
 }
+
+$(document).ready(function(){
+    $('#btnCancelpreRace').click(() =>{
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            cache: false,
+            url: 'http://127.0.0.1/Muv/www/php/cancelarPreCorrida.php',
+            success: function (data) {
+                if ($.trim(data) == "error") {
+                    console.log('não foi')
+                } else {
+                    window.location.href = 'inapp.html'
+                    console.log('corrida deletada com sucesso')
+                }
+            }
+        });
+    })
+})
 
 
 // script select animado
