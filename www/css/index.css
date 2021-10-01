@@ -236,7 +236,9 @@
 
 
 /* tela perfil */
-
+#especImg{
+    width: 1.5em;
+}
 .inputPerfilNome {
     width: 200px;
     border: none;
@@ -350,7 +352,6 @@
     width: 150px;
     padding: 5px;
     border-radius: 7px;
-    background-color: #22FFAF;
     justify-content: space-around;
 }
 
@@ -723,14 +724,14 @@ input:checked+.slider:before {
 .opcao-1 {
     width: 8em;
     height: 10em;
-    background-color: #00C0E7;
+    background-color: #0077B6;
     border-radius: 20px;
 }
 
 .opcao-2 {
     width: 8em;
     height: 10em;
-    background-color: #0077B6;
+    background-color: #00C0E7;
     border-radius: 20px;
 }
 
@@ -805,7 +806,18 @@ input:checked+.slider:before {
     align-items: center;
     margin-bottom: 3em;
 }
-
+.paymentinfobg input[type=radio]:checked+label p {
+    color: #fff;
+}
+.pagamentoTxt{
+    color: grey;
+}
+.iconcheck{
+    opacity: 0;
+}
+.paymentinfobg input[type=radio]:checked + label .iconcheck{
+    opacity: 1;
+}
 .paymentinfo {
     flex-direction: column;
 }
@@ -816,6 +828,7 @@ input:checked+.slider:before {
 
 .paymentinfo .cardinfo .row {
     padding: 10px;
+    align-items: center;
 }
 
 .paymentinfo .moneyinfo {
@@ -824,6 +837,7 @@ input:checked+.slider:before {
 
 .paymentinfo .moneyinfo .row {
     padding: 10px;
+    align-items: center
 }
 
 @keyframes localconfirmaparecer {

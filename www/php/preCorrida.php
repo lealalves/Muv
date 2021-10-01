@@ -6,17 +6,19 @@ session_start();
 
 $codUser = $_SESSION['codUser'];
 
+
+$classe = $_POST['classe'];
+$preco = $_POST['preco'];
 $destino = $_POST['destino'];
 $distancia = $_POST['distancia'];
 $duracao = $_POST['duracao'];
 
-$query = mysqli_query($con,"insert into corrida (endDestino,distancia,tempo,infUser) values 
-('$destino','$distancia','$duracao',$codUser)");
+$query = mysqli_query($con,"insert into corrida (endDestino,distancia,tempo,preco,classe,infUser) values 
+('$destino','$distancia','$duracao','$preco','$classe',$codUser)");
 
-
-    $queryConsulta = mysqli_query($con,"select * from corrida where infUser=$codUser order by idCorrida DESC limit 1");
-    $resul = mysqli_fetch_object($queryConsulta);
-    echo json_encode($resul);
-
-
+if($query){
+    echo "success";
+}else {
+    echo "error";
+}
 ?>

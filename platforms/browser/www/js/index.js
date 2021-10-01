@@ -1,22 +1,35 @@
 function userInfoProfile() {
-    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php', function(result) {
+    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php', function (result) {
         let inputName = document.querySelector('#nomeUsuario');
         let inputEmail = document.querySelector('#emailUsuario');
         let inputTelefone = document.querySelector('#telefoneUsuario');
         let inputData = document.querySelector('#dataUsuario');
         let inputSenha = document.querySelector('#senhaUsuario');
-        let especTxt = document.querySelector('.txtespec');
+        let especTxt = document.querySelector('.txtespec');        
+        let especImg = document.querySelector('#especImg')
+        let especDiv = document.querySelector(".especselect")
         especTxt.innerHTML = result.especificacao;
         inputName.value = result.nome;
         inputEmail.value = result.email;
         inputTelefone.value = result.telefone;
         inputData.value = result.aniversario;
         inputSenha.value = result.senha;
+
+        if(result.especificacao == "i am disabled"){
+            especImg.setAttribute('src',`img/disabledicon.png`)
+            especDiv.style.backgroundColor = "#15C4EA"
+        }else if(result.especificacao == "hearing impaired"){
+            especImg.setAttribute('src',`img/hearingicon.png`)
+            especDiv.style.backgroundColor = "#22FFAF"
+        }else if(result.especificacao == "visually impaired"){
+            especImg.setAttribute('src',`img/visuallyicon.png`)
+            especDiv.style.backgroundColor = "#8B54FF"
+        }
     })
 }
 
 function showUserName() {
-    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php', function(result) {
+    $.getJSON('http://127.0.0.1/Muv/www/php/sessao.php', function (result) {
         let inputName = document.querySelector('#nomeUsuario');
         inputName.innerHTML = result.nome;
     })
@@ -36,7 +49,7 @@ function alterar() {
         cache: false,
         url: 'http://127.0.0.1/Muv/www/php/alterar.php',
         data: string,
-        success: function(data) {
+        success: function (data) {
             if ($.trim(data) == "error") {
                 console.log('n foi');
             } else {
@@ -51,7 +64,7 @@ function logout() {
     $.ajax({
         url: url,
         data: url,
-        success: function(data) {
+        success: function (data) {
             window.location.href = data;
         }
     })
@@ -68,7 +81,7 @@ function login() {
             cache: false,
             url: url,
             data: url,
-            success: function(data) {
+            success: function (data) {
                 if ($.trim(data) == "error") {
                     $(".inputlogin").toggleClass("error");
                 } else {
@@ -94,7 +107,7 @@ function cadastrar() {
             data: string,
             crossDomain: true,
             cache: false,
-            success: function(data) {
+            success: function (data) {
                 if ($.trim(data) == "error") {
                     $(".inputlogin").toggleClass("error");
                 } else {
@@ -114,8 +127,8 @@ function cadastrar() {
 
 function validarEspec() {
     var opcoes = document.querySelectorAll("input[type='radio']")
-    opcoes.forEach(function(ck) {
-        ck.addEventListener("click", function() {
+    opcoes.forEach(function (ck) {
+        ck.addEventListener("click", function () {
             let checked = document.querySelectorAll("input[type = 'checkbox']:checked")
             var btn = document.querySelector(".btnespec")
             if (checked != 0) {
@@ -155,7 +168,7 @@ function slideMenuHistoricoChat() {
     let input = document.querySelectorAll('.optionsradio')
 
     input.forEach(item => {
-        item.addEventListener('click', function() {
+        item.addEventListener('click', function () {
             let container = document.querySelector(".container-menu")
             if (input[1].checked == true && input[0].checked == false) {
                 container.classList.add('movetohistoric')
@@ -182,7 +195,7 @@ function selectedEspec() {
         cache: false,
         url: 'http://127.0.0.1/Muv/www/php/alterarEspec.php',
         data: string,
-        success: function(data) {
+        success: function (data) {
             if ($.trim(data) == "error") {
                 console.log('n foi');
             } else {
@@ -218,10 +231,10 @@ function geoSucess(dados) {
     $.ajax({
         dataType: "json",
         url: url,
-        error: function(e) {
+        error: function (e) {
             console.log("errou" + e);
         },
-        success: function(r) {
+        success: function (r) {
             console.log("foi!");
             initMap();
         }
@@ -279,6 +292,9 @@ function initMap() {
 // mapa tela seleção local
 function initAutoComplete() {
 
+    let directionsDisplay = new google.maps.DirectionsRenderer();
+    let directionsService = new google.maps.DirectionsService();
+
     var lat = parseFloat(localStorage.getItem('latitu'));
     var lon = parseFloat(localStorage.getItem('longitu'));
 
@@ -293,17 +309,7 @@ function initAutoComplete() {
     var marker = new google.maps.Marker({
         position: meulocal,
         map: map,
-        animation: google.maps.Animation.DROP
     });
-    marker.addListener("click", toggleBounce);
-
-    function toggleBounce() {
-        if (marker.getAnimation() !== null) {
-            marker.setAnimation(null);
-        } else {
-            marker.setAnimation(google.maps.Animation.BOUNCE);
-        }
-    }
 
     const input = document.getElementById("destino-input");
     const searchBox = new google.maps.places.SearchBox(input);
@@ -314,12 +320,10 @@ function initAutoComplete() {
     });
     // apos definir o destino :
     searchBox.addListener("places_changed", () => {
-
         $('.localselectoptions').fadeOut(100);
-        if($('.localselectoptions').fadeOut()){
+        if ($('.localselectoptions').fadeOut()) {
             $('.localsearchbg').height(60)
         }
-
 
         const places = searchBox.getPlaces();
 
@@ -341,60 +345,98 @@ function initAutoComplete() {
                 bounds.extend(place.geometry.location);
             }
         });
-
-        const directionsDisplay = new google.maps.DirectionsRenderer();
-        const directionsService = new google.maps.DirectionsService();
-
-        const destino = places[0].formatted_address
+        var destinolocal = places[0].formatted_address;
 
         if (marker) marker.setMap(null);
 
         directionsDisplay.setMap(map);
 
-        var start = meulocal;
-        var end = destino;
-
         var request = {
-            origin: start,
-            destination: end,
+            origin: meulocal,
+            destination: destinolocal,
             travelMode: google.maps.DirectionsTravelMode.DRIVING
         };
-        directionsService.route(request, function(response, status) {
-            if (status == google.maps.DirectionsStatus.OK)
+        directionsService.route(request, function (response, status) {
+            if (status == google.maps.DirectionsStatus.OK) {
                 directionsDisplay.setDirections(response);
 
-                let duracao = response.routes[0].legs[0].duration.text
-                let distancia = response.routes[0].legs[0].distance.text
-                let destino = response.routes[0].legs[0].end_address
 
-                let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}`
+                // calculo do preço
+                let t = response.routes[0].legs[0].duration.value
+                let km = response.routes[0].legs[0].distance.value
 
-                $.ajax({
-                    type: "POST",
-                    crossDomain: true,
-                    cache: false,
-                    url: 'http://127.0.0.1/Muv/www/php/preCorrida.php',
-                    data: string,
-                    success: function(data) {
-                        if ($.trim(data) == "error") {
-                            console.log('não foi')
-                        } else {
-                            console.log('dados da corrida gravados')                            
+                let muvX = 2 + ((km / 1000) * 1.50) + ((t / 60) * 0.25) + 1;
+
+                let muvMax = 2 + ((km / 1000) * 2.40) + ((t / 60) * 0.25) + 1;
+
+                let muvNav = 2 + ((km / 1000) * 4.55) + ((t / 60) * 0.25) + 1;
+
+                // mostrando o preço na tela de cada classe
+                let muvXTexto = document.getElementById('xclassePreco');
+                let muvMaxTexto = document.getElementById('maxclassePreco');
+                let muvNavTexto = document.getElementById('navclassePreco');
+
+                muvXTexto.innerHTML = `R$${muvX.toFixed(2)}`;
+                muvMaxTexto.innerHTML = `R$${muvMax.toFixed(2)}`;
+                muvNavTexto.innerHTML = `R$${muvNav.toFixed(2)}`;
+
+                let opcoes = document.querySelectorAll('.slides');
+                // verificando qual classe foi escolhida e pegando o preço
+                opcoes.forEach((op) => {
+                    op.addEventListener('click', function (event) {
+                        opcaoSelecionada = event.currentTarget
+                        let preco
+                        let classe
+                        if (opcaoSelecionada.id == "classe-1") {
+                            classe = "muvX"
+                            preco = muvXTexto.innerHTML
+                        } else if (opcaoSelecionada.id == "classe-2") {
+                            classe = "muvMax"
+                            preco = muvMaxTexto.innerHTML
+                        } else if (opcaoSelecionada.id == "classe-3") {
+                            classe = "muvNav"
+                            preco = muvNavTexto.innerHTML
                         }
-                    }
-                });
+
+                        // enviando informações preCorrida para o banco de dados
+                        let duracao = response.routes[0].legs[0].duration.text
+                        let distancia = response.routes[0].legs[0].distance.text
+                        let destino = response.routes[0].legs[0].end_address
+
+                        let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}&preco=${preco}&classe=${classe}`
+                        $.ajax({
+                            type: "POST",
+                            crossDomain: true,
+                            cache: false,
+                            url: 'http://127.0.0.1/Muv/www/php/preCorrida.php',
+                            data: string,
+                            success: function (data) {
+                                if ($.trim(data) == "error") {
+                                    console.log('não foi')
+                                } else {
+                                    console.log('dados da corrida gravados')
+                                    window.location.href = 'localconfirm.html'
+                                }
+                            }
+                        });
+                    })
+                })
+            }
         });
     });
 }
 
 
-function raceConfirmInfo(){    
-    $.getJSON('http://127.0.0.1/Muv/www/php/preCorridaConsulta.php', function(result) {
-        console.log(result)
+function raceConfirmInfo() {
+    $.getJSON('http://127.0.0.1/Muv/www/php/preCorridaConsulta.php', function (result) {
         let txtDestino = document.getElementById('txtDestino')
         let txtDistancia = document.getElementById('txtDistancia')
         let txtTempo = document.getElementById('txtTempo')
+        let txtPreco = document.getElementById('txtPreco')
+        let classeImg = document.getElementById('classeImg')
 
+        classeImg.setAttribute('src',`img/${result.classe}.png`)
+        txtPreco.innerHTML = result.preco;
         txtDestino.innerHTML = result.endDestino;
         txtDistancia.innerHTML = result.distancia;
         txtTempo.innerHTML = result.tempo;
