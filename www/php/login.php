@@ -9,6 +9,7 @@ $senha = $_REQUEST['senha'];
     if(mysqli_num_rows($query) == 0){
         echo 'error';
     }else{
+        echo 'success';
         $resul = mysqli_fetch_array($query);
         if(!isset($_SESSION)) session_start();
 

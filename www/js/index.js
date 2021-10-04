@@ -50,10 +50,11 @@ function alterar() {
         url: 'http://127.0.0.1/Muv/www/php/alterar.php',
         data: string,
         success: function (data) {
-            if ($.trim(data) == "error") {
-                console.log('n foi');
-            } else {
+            if ($.trim(data) == "success") {
                 window.location.href = 'inapp.html'
+                console.log('foi');
+            } else {
+                console.log('n foi');
             }
         }
     });
@@ -82,11 +83,11 @@ function login() {
             url: url,
             data: url,
             success: function (data) {
-                if ($.trim(data) == "error") {
-                    $(".inputlogin").toggleClass("error");
-                } else {
-                    showUserName();
+                if ($.trim(data) == "success") {
                     window.location.href = 'inapp.html';
+                    showUserName();
+                } else {                    
+                    $(".inputlogin").toggleClass("error");
                 }
             }
         });
@@ -108,10 +109,10 @@ function cadastrar() {
             crossDomain: true,
             cache: false,
             success: function (data) {
-                if ($.trim(data) == "error") {
-                    $(".inputlogin").toggleClass("error");
+                if ($.trim(data) == "success") {
+                    window.location.href = 'especificacao.html'                    
                 } else {
-                    window.location.href = 'especificacao.html'
+                    $(".inputlogin").toggleClass("error");
                 }
             }
         });
@@ -196,11 +197,11 @@ function selectedEspec() {
         url: 'http://127.0.0.1/Muv/www/php/alterarEspec.php',
         data: string,
         success: function (data) {
-            if ($.trim(data) == "error") {
-                console.log('n foi');
-            } else {
+            if ($.trim(data) == "success") {
                 console.log('foi')
-                window.location.href = 'novoperfil.html'
+                window.location.href = 'novoperfil.html'                
+            } else {
+                console.log('n foi');
             }
         }
     });
@@ -412,11 +413,11 @@ function initAutoComplete() {
                             url: 'http://127.0.0.1/Muv/www/php/preCorrida.php',
                             data: string,
                             success: function (data) {
-                                if ($.trim(data) == "error") {
-                                    console.log('não foi')
-                                } else {
+                                if ($.trim(data) == "success") {
                                     console.log('dados da corrida gravados')
-                                    window.location.href = 'localconfirm.html'
+                                    window.location.href = 'localconfirm.html'                                    
+                                } else {
+                                    console.log('não foi')
                                 }
                             }
                         });
@@ -446,23 +447,51 @@ function raceConfirmInfo() {
 }
 
 $(document).ready(function(){
-    $('#btnCancelpreRace').click(() =>{
+    $('#btnCancelpreRace,#btnLoadingCancelRace').click(() =>{
         $.ajax({
             type: "POST",
             crossDomain: true,
             cache: false,
             url: 'http://127.0.0.1/Muv/www/php/cancelarPreCorrida.php',
             success: function (data) {
-                if ($.trim(data) == "error") {
-                    console.log('não foi')
-                } else {
+                if ($.trim(data) == "success") {
                     window.location.href = 'inapp.html'
                     console.log('corrida deletada com sucesso')
+                } else {
+                    console.log('não foi')
+                }
+            }
+        });
+    })
+    $('#btnConfirmpreRace').click(() =>{
+        let input = document.querySelectorAll('input[name="metodoPagamento"]')
+        let pagamento;
+        console.log(input)
+        if(input[0].checked){
+            pagamento = "cartaocredito";
+        }else pagamento = "dinheiro";
+
+        let string = `pagamento=${pagamento}&status=motorista`
+
+        $.ajax({
+            type: "POST",
+            crossDomain: true,
+            cache: false,
+            url: "http://127.0.0.1/Muv/www/php/corrida.php",
+            data: string,
+            success: function (data) {
+                debugger
+                if ($.trim(data) == "success") {
+                    console.log('corrida gravada com sucesso')
+                    window.location.href = 'loadingpage.html'
+                } else {
+                    console.log('não foi')
                 }
             }
         });
     })
 })
+
 
 
 // script select animado
