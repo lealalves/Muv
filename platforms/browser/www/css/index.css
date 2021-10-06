@@ -226,14 +226,9 @@
 }
 
 .btnespec {
-    opacity: 0;
+    opacity: 1;
     transition: .2s ease;
 }
-
-.btnespec.show {
-    opacity: 1;
-}
-
 
 /* tela perfil */
 #especImg{
@@ -293,6 +288,7 @@
 
 .avatarperfil {
     width: 8em;
+    height: 8em;
     border: 2px solid #22FFAF;
     border-radius: 50%;
     margin-bottom: 5px;
@@ -1085,6 +1081,7 @@ input[type=radio] {
 
 .optionsavatar {
     width: 47px;
+    height: 47px;
     border: 2px solid #22FFAF;
     border-radius: 50%;
     box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);

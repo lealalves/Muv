@@ -57,19 +57,22 @@
                 <button class="icon ion-android-arrow-back" onclick="backPage()"></button>
             </div>
             <div class="right">
-                <button class="text-white" onclick="alterar()">Next</button>
+                <button class="text-white" onclick="alterarImagem(),alterar()">Next</button>
             </div>
         </div>
         <div class="perfilbg">
             <!-- foto de perfil -->
             <div class="row perfiltopo">
                 <div class="row imgtxtperfil">
+                    <input type='file' name='inputfile' id='inputfile' style="display: none;"> 
                     <div class="row userimg">
-                        <img src="img/avatar1.png" class="avatarperfil">
+                        <img class="avatarperfil userImg">
                     </div>
-                    <div class="row btneditimgperfil">
-                        <i style="color: white;" class="fas fa-edit"></i>
-                    </div>
+                    <label for="inputfile">
+                        <div class="row btneditimgperfil">
+                            <i style="color: white;" class="fas fa-edit"></i>
+                        </div>
+                    </label>                    
                     <div class="row">
                         <input type="email" class="inputPerfilNome" name="usuarioNome" id="nomeUsuario" placeholder="Qual o seu nome?">
                     </div>                    

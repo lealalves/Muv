@@ -162,15 +162,13 @@ function cadastrar() {
 
 
 function validarEspec() {
+    $('.btnespec').hide()
     var opcoes = document.querySelectorAll("input[type='radio']")
     opcoes.forEach(function (ck) {
         ck.addEventListener("click", function () {
             let checked = document.querySelectorAll("input[type = 'checkbox']:checked")
-            var btn = document.querySelector(".btnespec")
             if (checked != 0) {
-                btn.classList.add("show")
-            } else {
-                btn.classList.remove("show")
+                $('.btnespec').fadeIn()
             }
         })
     })
