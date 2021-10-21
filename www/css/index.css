@@ -1227,3 +1227,56 @@ input[type=radio] {
 #map {
     height: 100%;
 }
+.chatheader{
+    background-color: #0D1016;
+    height: 100px;
+    width: 100%;
+    align-items: center;
+    justify-content: flex-start;
+    border-bottom: 1px solid #343B49;
+}
+.chatheader .row{
+    padding: 10px;
+}
+.chatheaderName{
+    flex-direction: column;
+}
+.chatbg{
+    overflow: auto;
+    background-color: #0D1016;
+    padding: 25px;
+    height: 75vh;
+    flex-direction: column;
+}
+.chatFooter{
+    background-color: #0D1016;
+    height: 5em;
+    justify-content: center;
+    align-items: center;  
+}
+.chatFooter .row{
+    padding: 10px;
+}
+.chatInput{
+    width: 200px;
+    height: 30px;
+    border-radius: 50px;
+    padding: 5px;
+}
+.chatbox p{ 
+    word-break: break-all;   
+    color: whitesmoke;
+    padding: 10px
+}
+.userMessage p{
+    max-width: calc(100% - 100px);
+    margin-left: auto;
+    background: #1C4EFF;
+    border-radius: 18px 0px 18px 18px;
+}
+.friendMessage p{
+    max-width: calc(100% - 100px);
+    margin-right: auto;
+    background: #222C41;
+    border-radius: 0px 18px 18px 18px;
+}
