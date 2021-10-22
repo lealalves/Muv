@@ -162,6 +162,11 @@
 }
 
 
+
+
+
+
+
 /* tela especificaçao */
 
 .especbg {
@@ -229,6 +234,12 @@
     opacity: 1;
     transition: .2s ease;
 }
+
+
+
+
+
+
 
 /* tela perfil */
 #especImg{
@@ -372,6 +383,11 @@
 }
 
 
+
+
+
+
+
 /* tela inicial */
 
 .inappmenuicon {
@@ -402,7 +418,6 @@
     border-radius: 50%;
     box-shadow: 5px 4px 10px rgba(0, 0, 0, 0.6);
 }
-
 
 /* barra de pesquisa :) */
 
@@ -443,6 +458,11 @@
 .voice {
     height: 20px;
 }
+
+
+
+
+
 
 
 /* tela menu  */
@@ -602,6 +622,11 @@ input:checked+.slider:before {
 }
 
 
+
+
+
+
+
 /* tela local/selecão carro */
 
 .localbg {
@@ -759,6 +784,10 @@ input:checked+.slider:before {
 }
 
 
+
+
+
+
 /* tela confirmar local/carro selecionado */
 
 .localconfirmbg {
@@ -883,6 +912,11 @@ input:checked+.slider:before {
     width: 280px;
     justify-content: space-between;
 }
+
+
+
+
+
 
 
 /* tela de carregamento */
@@ -1044,6 +1078,11 @@ input:checked+.slider:before {
         transform: scale(1);
     }
 }
+
+
+
+
+
 
 
 /* tela historico/chat */
@@ -1227,6 +1266,18 @@ input[type=radio] {
 #map {
     height: 100%;
 }
+
+
+
+
+
+
+/* tela chat */
+
+.chatScreen{
+    width: 100vw;
+    height: 100vh;
+}
 .chatheader{
     background-color: #0D1016;
     height: 100px;
@@ -1245,12 +1296,11 @@ input[type=radio] {
     overflow: auto;
     background-color: #0D1016;
     padding: 25px;
-    height: 75vh;
+    height: calc(100% - 150px);
     flex-direction: column;
 }
 .chatFooter{
     background-color: #0D1016;
-    height: 5em;
     justify-content: center;
     align-items: center;  
 }
@@ -1266,17 +1316,21 @@ input[type=radio] {
 .chatbox p{ 
     word-break: break-all;   
     color: whitesmoke;
-    padding: 10px
+    padding: 8px 16px;
 }
-.userMessage p{
+.chatbox{
+    margin-bottom: 10px;
+}
+.userMessage{
     max-width: calc(100% - 100px);
     margin-left: auto;
     background: #1C4EFF;
     border-radius: 18px 0px 18px 18px;
 }
-.friendMessage p{
+.friendMessage{
     max-width: calc(100% - 100px);
     margin-right: auto;
     background: #222C41;
     border-radius: 0px 18px 18px 18px;
 }
+
