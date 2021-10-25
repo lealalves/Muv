@@ -3,4 +3,4 @@
 
  TCC - Desenvolvimentos de Sistemas 3º Módulo, ETEC Registro-SP.
 
- Integrantes: Rebeca Baruch, Vinicius Leal, Renan Alves.
+ Integrantes: Rebeca Baruch, Vinicius Leal, Renan Alves e Vinicius Muniz.
