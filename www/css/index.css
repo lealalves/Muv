@@ -1334,3 +1334,13 @@ input[type=radio] {
     border-radius: 0px 18px 18px 18px;
 }
 
+
+
+.accessibilityDiv{
+    position: absolute;
+    width: 20rem;
+    height: 20rem;
+    background-color: #202736;
+    z-index: 1;
+    color: white;
+}
