@@ -25,12 +25,13 @@ if($filetype == 'image/pjpeg' || $filetype == 'image/PJPEG' || $filetype == 'ima
 
     if(empty($lastimg[0])){
         $query = mysqli_query($con, "update usuario set imgperfil='$novonome' where codUser='$codUser'");
-        if($query) echo "success";
+        if($query) echo $novonome;
         else echo "error";
     }else{
+        //se o usuario ja cadastrou outra imagem anteriormente ela ser apagada
         unlink('../userimg/' . $lastimg[0]);
         $query = mysqli_query($con, "update usuario set imgperfil='$novonome' where codUser='$codUser'");
-        if($query) echo "success";
+        if($query) echo $novonome;
         else echo "error";
     }
 }

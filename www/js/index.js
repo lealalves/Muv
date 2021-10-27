@@ -58,11 +58,7 @@ function alterarImagem() {
             cache: false,
             processData: false,
             success: function (data) {
-                if ($.trim(data) == "success") {
-                    console.log('imagem alterada com sucesso!');
-                } else {
-                    console.log('imagem nao alterada :/');
-                }
+                $('.userImg').attr('src', `userimg/${data}`)
             }
         });
     } else {
@@ -83,7 +79,7 @@ function alterar() {
         crossDomain: true,
         cache: false,
         url: 'http://127.0.0.1/Muv/www/php/alterar.php',
-        data: string,
+        data: string,       
         success: function (data) {
             if ($.trim(data) == "success") {
                 window.location.href = 'inapp.html'
@@ -117,16 +113,27 @@ function login() {
             cache: false,
             url: url,
             data: url,
+            beforeSend: function(){
+                console.log('carregando..')
+            },
             success: function (data) {
                 if ($.trim(data) == "success") {
                     window.location.href = 'inapp.html';
                     showUserName();
                 } else {
-                    $(".inputlogin").toggleClass("error");
+                    $(".inputlogin").addClass("error");
+                    setTimeout(function (){
+                        $(".inputlogin").removeClass("error");
+                    },2000)
                 }
             }
         });
-    } else $(".inputlogin").toggleClass("error");
+    } else {
+        $(".inputlogin").addClass("error");
+            setTimeout(function (){
+                $(".inputlogin").removeClass("error");
+            },2000)
+    };
 
 }
 
@@ -147,12 +154,18 @@ function cadastrar() {
                 if ($.trim(data) == "success") {
                     window.location.href = 'especificacao.html'
                 } else {
-                    $(".inputlogin").toggleClass("error");
+                    $(".inputlogin").addClass("error");
+                    setTimeout(function (){
+                        $(".inputlogin").removeClass("error");
+                    },2000)                    
                 }
             }
         });
     } else {
-        $(".inputlogin").toggleClass("error");
+        $(".inputlogin").addClass("error");
+            setTimeout(function (){
+                $(".inputlogin").removeClass("error");
+            },2000)
     }
 }
 
