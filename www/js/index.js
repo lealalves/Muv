@@ -503,7 +503,6 @@ $(document).ready(function () {
             url: "http://127.0.0.1/Muv/www/php/corrida.php",
             data: string,
             success: function (data) {
-                debugger
                 if ($.trim(data) == "success") {
                     console.log('corrida gravada com sucesso')
                     window.location.href = 'loadingpage.html'

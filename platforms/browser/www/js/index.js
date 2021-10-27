@@ -427,7 +427,8 @@ function initAutoComplete() {
                         let destino = response.routes[0].legs[0].end_address
                         let origem = response.routes[0].legs[0].start_address
 
-                        let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}&origem=${origem}&preco=${preco}&classe=${classe}`
+                        let string = `duracao=${duracao}&distancia=${distancia}&destino=${destino}
+                        &origem=${origem}&preco=${preco}&classe=${classe}`
                         $.ajax({
                             type: "POST",
                             crossDomain: true,
@@ -502,7 +503,6 @@ $(document).ready(function () {
             url: "http://127.0.0.1/Muv/www/php/corrida.php",
             data: string,
             success: function (data) {
-                debugger
                 if ($.trim(data) == "success") {
                     console.log('corrida gravada com sucesso')
                     window.location.href = 'loadingpage.html'

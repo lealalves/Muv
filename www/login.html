@@ -51,15 +51,19 @@
 
 <body>
     <div class="content row-center bgapp align-center transicao">
-        <div class="accessibilityDiv">
-            <p id="forRead">
-                Olá, seja bem-vindo ao aplicativo Muv! Deseja continuar com o modo de accessibilidade?
-            </p>
-            <label for="langSelect">aaaaa</label>  <br><br>
-
-            <select id="langSelect"></select>
-            <button class="btnlogin btnAccess">Sim</button>
-            <button class="btnlogin btnAccess">Não</button>
+        <div class="row accessibilityDiv">
+            <div class="row accessText">
+                <p id="forRead">
+                    Olá, seja bem-vindo ao aplicativo Muv! Deseja continuar com o modo de accessibilidade?
+                </p>
+            </div>  
+            <div class="row inputLang">
+                <select id="langSelect"></select>
+            </div>      
+            <div class="row accessFooter">
+                <button class="btnlogin btnAccess">Sim</button>
+                <button class="btnlogin btnAccess">Não</button>
+            </div>
         </div>
         <div class="col marginlogin">            
             <div class="row horizontal-align-center">
@@ -144,18 +148,20 @@
         uterrance.text = messageForRead.innerText
 
         $(document).ready(()=>{
-            $('.accessibilityDiv').hide()
             $('.btnAccess').click((e) =>{
                 if(e.target.innerText == 'Não'){
                     localStorage.setItem('access', 'false')
                     $('.accessibilityDiv').hide()
                 }
             })
-            if(localStorage.getItem('access') === 'true'){
+
+            if(localStorage.getItem('access') === 'true' || localStorage.getItem('access') === null){
                 $('.accessibilityDiv').show()
                 speechSynthesis.speak(uterrance)
+            }else{
+                $('.accessibilityDiv').hide()
             }
-        })
+         })
 
     </script>
 </body>

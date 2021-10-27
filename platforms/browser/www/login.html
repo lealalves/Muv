@@ -51,6 +51,20 @@
 
 <body>
     <div class="content row-center bgapp align-center transicao">
+        <div class="row accessibilityDiv">
+            <div class="row accessText">
+                <p id="forRead">
+                    Olá, seja bem-vindo ao aplicativo Muv! Deseja continuar com o modo de accessibilidade?
+                </p>
+            </div>  
+            <div class="row inputLang">
+                <select id="langSelect"></select>
+            </div>      
+            <div class="row accessFooter">
+                <button class="btnlogin btnAccess">Sim</button>
+                <button class="btnlogin btnAccess">Não</button>
+            </div>
+        </div>
         <div class="col marginlogin">            
             <div class="row horizontal-align-center">
                 <div class="col">
@@ -99,6 +113,57 @@
             </div>                
         </div>
     </div>
+    <script>
+
+        
+        const uterrance = new SpeechSynthesisUtterance()
+        const messageForRead = document.querySelector('#forRead')
+        const langInput = document.querySelector('select')
+        const btnAccess = document.querySelectorAll('#btnAccess')
+        
+        
+
+
+        const insertOptionElementIntoDOM = voices =>{
+            langInput.innerHTML = voices.reduce((accumulator, {name,lang}) => {
+                accumulator += `<option value="${name}">${lang} | ${name}</option>`
+                return accumulator
+            },'')
+        }
+        let voices = []
+        speechSynthesis.addEventListener('voiceschanged', () => {
+            voices = speechSynthesis.getVoices()
+            insertOptionElementIntoDOM(voices)
+
+        })
+
+        const setVoice = event => {
+            const selectedVoice = voices.find(voice => voice.name === event.target.value)
+            uterrance.voice = selectedVoice
+            uterrance.text = `Idioma ${selectedVoice.name} selecionado!`
+            speechSynthesis.speak(uterrance)
+        }
+        
+        langInput.addEventListener('change', setVoice)        
+        uterrance.text = messageForRead.innerText
+
+        $(document).ready(()=>{
+            $('.btnAccess').click((e) =>{
+                if(e.target.innerText == 'Não'){
+                    localStorage.setItem('access', 'false')
+                    $('.accessibilityDiv').hide()
+                }
+            })
+
+            if(localStorage.getItem('access') === 'true' || localStorage.getItem('access') === null){
+                $('.accessibilityDiv').show()
+                speechSynthesis.speak(uterrance)
+            }else{
+                $('.accessibilityDiv').hide()
+            }
+         })
+
+    </script>
 </body>
 
 </html>
