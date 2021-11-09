@@ -513,7 +513,7 @@ $(document).ready(function () {
             type: "POST",
             crossDomain: true,
             cache: false,
-            url: "http://127.0.0.1/Muv/www/php/corrida.php",
+            url: "http://127.0.0.1/Muv/www/php/finalizarPedcorrida.php",
             data: string,
             success: function (data) {
                 if ($.trim(data) == "success") {
