@@ -46,7 +46,7 @@
     <script src="mobileui/mobileui.js"></script>
     <script src="js/index.js"></script>
     <script src="js/all.js"></script>
-    <title>Teste</title>
+    <title>Muv Cliente</title>
 </head>
 
 <body class="transicao" onload="userInfoProfile()" style="background-color: #063DFF;">
@@ -61,7 +61,7 @@
             <!-- foto de perfil -->
             <div class="row perfiltopo">
                 <div class="row imgtxtperfil">
-                    <input type='file' name='inputfile' id='inputfile' style="display: none;">                    
+                    <input type='file' name='inputfile' id='inputfile' style="display: none;" onchange="alterarImagem()">                    
                     <div class="row userimg">
                         <img class="avatarperfil userImg">
                     </div>
@@ -98,7 +98,7 @@
                 <hr class="separador">
                 <div class="row">
                     <div class="row">
-                        <h1 class="text-white">Phone</h1>
+                        <h1 class="text-white">Telefone</h1>
                     </div>
                     <div class="row">
                         <div class="right">
@@ -109,7 +109,7 @@
                 <hr class="separador">
                 <div class="row">
                     <div class="row">
-                        <h1 class="text-white">Birth</h1>
+                        <h1 class="text-white">Data de nascimento</h1>
                     </div>
                     <div class="row">
                         <div class="right">
@@ -120,7 +120,7 @@
                 <hr class="separador">
                 <div class="row">
                     <div class="row">
-                        <h1 class="text-white">Password</h1>
+                        <h1 class="text-white">Senha</h1>
                     </div>
                     <div class="row">
                         <div class="right">
@@ -132,7 +132,7 @@
             </div>
             <!-- metodos de pagamento -->
             <div class="row paymentbg">
-                <h1 class="row paymentbgtitle" style="font-size:15px">Payment</h1>
+                <h1 class="row paymentbgtitle" style="font-size:15px">Métodos de pagamento</h1>
                 <div class="row metodosbg">
                     <i style="color: grey;" class="fas fa-credit-card fa-lg"></i>
                 </div>
@@ -144,7 +144,15 @@
         </div>
     </div>
     <script>
-        
+        // const realTimeImg = () => {
+        //     setInterval(() => {
+        //         alterarImagem()
+        //             if(alterarImagem() === 'imagemalterada' ){
+        //                 console.log('imagem alterada!')
+        //                 clearInterval(setInterval)
+        //             }else console.log('sem imagem!')
+        //     }, 2000);
+        // }
 
     </script>
 </body>

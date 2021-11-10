@@ -13,14 +13,17 @@ function userInfoProfile() {
             $('.userImg').attr('src', 'img/noavatar.png')
         }
 
-        if (result.especificacao == "i am disabled") {
-            $('#especImg').attr('src', `img/disabledicon.png`)
+        if (result.especificacao == "deficiência física") {
+            $('#especImg').attr('src', `img/fisico.png`)
+            $('#especImg').css('width', `2.1em`)
             $('.especselect').css('background-color', '#15C4EA')
-        } else if (result.especificacao == "hearing impaired") {
-            $('#especImg').attr('src', `img/hearingicon.png`)
+        } else if (result.especificacao == "deficiência auditiva") {
+            $('#especImg').attr('src', `img/surdez.png`)
+            $('#especImg').css('width', `1.1em`)
             $('.especselect').css('background-color', '#22FFAF')
-        } else if (result.especificacao == "visually impaired") {
-            $('#especImg').attr('src', `img/visuallyicon.png`)
+        } else if (result.especificacao == "deficiência visual") {
+            $('#especImg').attr('src', `img/cego.png`)
+            $('#especImg').css('width', `2.4em`)
             $('.especselect').css('background-color', '#8B54FF')
         }
     })
@@ -58,11 +61,12 @@ function alterarImagem() {
             cache: false,
             processData: false,
             success: function (data) {
-                $('.userImg').attr('src', `userimg/${data}`)
+                $('.userImg').attr('src', `userimg/${data}`)                
+                return 'imagemalterada'
             }
         });
     } else {
-        console.log('sem imagem selecionada!')
+        console.log('semimagem')
     }
 
 }
@@ -152,6 +156,7 @@ function cadastrar() {
             cache: false,
             success: function (data) {
                 if ($.trim(data) == "success") {
+                    console.log(data)
                     window.location.href = 'especificacao.html'
                 } else {
                     $(".inputlogin").addClass("error");
@@ -231,9 +236,9 @@ function slideMenuHistoricoChat() {
 function selectedEspec() {
     let radioespec = document.querySelectorAll("input[type='radio']")
     let selectEspec = '';
-    if (radioespec[0].checked) selectEspec = 'visually impaired';
-    else if (radioespec[1].checked) selectEspec = 'hearing impaired';
-    else if (radioespec[2].checked) selectEspec = 'i am disabled';
+    if (radioespec[0].checked) selectEspec = 'deficiência visual';
+    else if (radioespec[1].checked) selectEspec = 'deficiência auditiva';
+    else if (radioespec[2].checked) selectEspec = 'deficiência física';
 
     let string = `espec=${selectEspec}&update=`
     $.ajax({
