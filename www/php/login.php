@@ -4,7 +4,7 @@ include 'conexao.php';
 $email = $_REQUEST['email'];
 $senha = $_REQUEST['senha'];
 
-    $query = mysqli_query($con, "select * from usuario where emailUser='$email' and senhaUser='$senha'");
+    $query = mysqli_query($con, "select * from usuario where email='$email' and senha='$senha'");
 
     if(mysqli_num_rows($query) == 0){
         echo 'error';

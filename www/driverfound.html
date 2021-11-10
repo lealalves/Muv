@@ -64,7 +64,7 @@
         $(document).ready(() => {
             $.getJSON('http://127.0.0.1/Muv/www/php/corridaConsulta.php', function (result) {
                 $('#txtEspec').text(result.especificacao)
-                $('#txtDriverName').text(result.nomeDriver)
+                $('#txtDriverName').text(result.nome)
                console.log(result)
             })
         })
