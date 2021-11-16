@@ -977,7 +977,7 @@ input:checked+.slider:before {
 .driverfoundbg{
     height: 100%;
     align-items: center;
-    justify-content: center;
+    justify-content: flex-end;
     flex-direction: column;
 }
 .driverdatabg{
@@ -1265,6 +1265,7 @@ input[type=radio] {
 
 #map {
     height: 100%;
+    width: 100%;
 }
 
 
