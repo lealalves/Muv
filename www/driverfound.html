@@ -5,10 +5,12 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
-    <link rel="stylesheet" type="text/css" href="mobileui/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <!-- <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" /> -->
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <script src="js/jquery.js"></script>
     <script src="mobileui/mobileui.js"></script>
@@ -19,9 +21,9 @@
 
 <body class="grey">
     <div class="row driverfoundbg">
-        <div class="row driverdatabgheader">
+        <div class="row driverdatabgheader" style="z-index: 1;">
             <div class="row">
-                <p id="txtEspec" style="color:#C5C5C5;font-size:12px">está chegando</p>
+                <p id="txtEspec" style="color:#C5C5C5;font-size:12px">está chegando!</p>
             </div>
             <div class="row">
                 <p id="txtDriverDistance" style="color:#C5C5C5;font-size:12px">8km</p>
@@ -30,6 +32,7 @@
                 <p id="txtDriverTimeDistance" style="color:#C5C5C5;font-size:12px">04:00</p>
             </div>
         </div>
+
         <div class="row driverdatabg">
             <div class="row driverimg">
                 <img src="img/avatar2.png">
@@ -40,34 +43,104 @@
                 </div>
                 <div class="row">
                     <h3 style="color:#505050;font-size:10px">
-                        <b id="txtCarPlate" >License plate:</b>BRP-123
+                        <b id="txtCarPlate">License plate:</b>BRP-123
                     </h3>
                 </div>
                 <div class="row carinfo">
                     <h3 style="color:#505050;font-size:10px">
-                        <b>Car:</b><span id="txtCarModel">HB20 - Blue</span>                  
+                        <b>Car:</b><span id="txtCarModel">HB20 - Blue</span>
                     </h3>
                     <div class="row carcolor"></div>
                 </div>
             </div>
             <div class="row chatIcon">
                 <img src="https://img.icons8.com/external-flatart-icons-lineal-color-flatarticons/30
-                /000000/external-chat-chat-flatart-icons-lineal-color-flatarticons-3.png"/>
+                /000000/external-chat-chat-flatart-icons-lineal-color-flatarticons-3.png" />
             </div>
         </div>
+        <div id="map" style="position: absolute;"></div>
         <div class="row">
-            <button class="btnDriver" style="width: auto;">Cancelar</button>
-        </div>        
+            <button id="btnCancelRace" class="btnDriver" style="width: auto;margin-bottom: 10px;">Cancelar</button>
+        </div>
+
     </div>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
+    <script
+        src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk&callback=pickUpMap&v=weekly"
+        async></script>
     <script>
-        $(document).ready(() => {
+        function pickUpMap() {
+            var lat = parseFloat(localStorage.getItem('latitu'));
+            var lon = parseFloat(localStorage.getItem('longitu'));
+
+            var clientLocal = { lat: lat, lng: lon };
+
+
+            const directionsRenderer = new google.maps.DirectionsRenderer({
+                suppressMarkers: true
+            });
+            const directionsService = new google.maps.DirectionsService();
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 14,
+                center: clientLocal,
+                disableDefaultUI: true
+            });
+
+            var icons = {
+                start: new google.maps.MarkerImage(
+                    // URL
+                    'img/driverMarker.png',
+                    // (width,height)
+                    new google.maps.Size(44, 32),
+                    // The origin point (x,y)
+                    new google.maps.Point(0, 0),
+                    // The anchor point (x,y)
+                    new google.maps.Point(22, 32)
+                ),
+                end: new google.maps.MarkerImage(
+                    // URL
+                    'img/clientMarker.png',
+                    // (width,height)
+                    new google.maps.Size(200, 32),
+                    // The origin point (x,y)
+                    new google.maps.Point(0, 0),
+                    // The anchor point (x,y)
+                    new google.maps.Point(22, 32)
+                )
+            };
+
             $.getJSON('http://127.0.0.1/Muv/www/php/corridaConsulta.php', function (result) {
-                $('#txtEspec').text(result.especificacao)
                 $('#txtDriverName').text(result.nome)
-               console.log(result)
+                let driverLocal = result.driverLocal
+                directionsRenderer.setMap(map);
+                directionsService
+                    .route({
+                        origin: { placeId: driverLocal },
+                        destination: clientLocal,
+                        travelMode: google.maps.TravelMode.DRIVING,
+                        // Note that Javascript allows us to access the constant
+                        // using square brackets and a string value as its
+                        // "property."
+                    })
+                    .then((response) => {
+                        directionsRenderer.setDirections(response)
+                        var leg = response.routes[0].legs[0];
+                        makeMarker(leg.start_location, icons.start, "title");
+                        makeMarker(leg.end_location, icons.end, 'title');
+                        $('#txtDriverDistance').text(response.routes[0].legs[0].distance.text)
+                        $('#txtDriverTimeDistance').text(response.routes[0].legs[0].duration.text)
+                    })
+                    .catch((e) => window.alert("Directions request failed due to " + status));
             })
-        })
+            function makeMarker(position, icon, title) {
+                new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    icon: icon,
+                    title: title
+                });
+            }
+        }
     </script>
 </body>
 

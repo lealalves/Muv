@@ -488,7 +488,7 @@ function raceConfirmInfo() {
 }
 
 $(document).ready(function () {
-    $('#btnCancelpreRace,#btnLoadingCancelRace').click(() => {
+    $('#btnCancelpreRace,#btnLoadingCancelRace,#btnCancelRace').click(() => {
         $.ajax({
             type: "POST",
             crossDomain: true,
