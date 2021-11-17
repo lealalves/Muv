@@ -977,11 +977,7 @@ input:checked+.slider:before {
 .driverfoundbg{
     height: 100%;
     align-items: center;
-<<<<<<< HEAD
     justify-content: flex-end;
-=======
-    justify-content: center;
->>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
     flex-direction: column;
 }
 .driverdatabg{
@@ -1269,10 +1265,7 @@ input[type=radio] {
 
 #map {
     height: 100%;
-<<<<<<< HEAD
     width: 100%;
-=======
->>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
 }
 
 
