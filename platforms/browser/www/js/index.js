@@ -13,6 +13,7 @@ function userInfoProfile() {
             $('.userImg').attr('src', 'img/noavatar.png')
         }
 
+<<<<<<< HEAD
         if (result.especificacao == "deficiência física") {
             $('#especImg').attr('src', `img/fisico.png`)
             $('#especImg').css('width', `2.1em`)
@@ -24,6 +25,16 @@ function userInfoProfile() {
         } else if (result.especificacao == "deficiência visual") {
             $('#especImg').attr('src', `img/cego.png`)
             $('#especImg').css('width', `2.4em`)
+=======
+        if (result.especificacao == "i am disabled") {
+            $('#especImg').attr('src', `img/disabledicon.png`)
+            $('.especselect').css('background-color', '#15C4EA')
+        } else if (result.especificacao == "hearing impaired") {
+            $('#especImg').attr('src', `img/hearingicon.png`)
+            $('.especselect').css('background-color', '#22FFAF')
+        } else if (result.especificacao == "visually impaired") {
+            $('#especImg').attr('src', `img/visuallyicon.png`)
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
             $('.especselect').css('background-color', '#8B54FF')
         }
     })
@@ -61,12 +72,20 @@ function alterarImagem() {
             cache: false,
             processData: false,
             success: function (data) {
+<<<<<<< HEAD
                 $('.userImg').attr('src', `userimg/${data}`)                
                 return 'imagemalterada'
             }
         });
     } else {
         console.log('semimagem')
+=======
+                $('.userImg').attr('src', `userimg/${data}`)
+            }
+        });
+    } else {
+        console.log('sem imagem selecionada!')
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
     }
 
 }
@@ -156,7 +175,10 @@ function cadastrar() {
             cache: false,
             success: function (data) {
                 if ($.trim(data) == "success") {
+<<<<<<< HEAD
                     console.log(data)
+=======
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
                     window.location.href = 'especificacao.html'
                 } else {
                     $(".inputlogin").addClass("error");
@@ -236,9 +258,15 @@ function slideMenuHistoricoChat() {
 function selectedEspec() {
     let radioespec = document.querySelectorAll("input[type='radio']")
     let selectEspec = '';
+<<<<<<< HEAD
     if (radioespec[0].checked) selectEspec = 'deficiência visual';
     else if (radioespec[1].checked) selectEspec = 'deficiência auditiva';
     else if (radioespec[2].checked) selectEspec = 'deficiência física';
+=======
+    if (radioespec[0].checked) selectEspec = 'visually impaired';
+    else if (radioespec[1].checked) selectEspec = 'hearing impaired';
+    else if (radioespec[2].checked) selectEspec = 'i am disabled';
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
 
     let string = `espec=${selectEspec}&update=`
     $.ajax({
@@ -268,8 +296,13 @@ function iniciar() {
 }
 // definindo o local atual
 function geoSucess(dados) {
+<<<<<<< HEAD
     var lat = -24.491395
     var lon = -47.841683
+=======
+    var lat = dados.coords.latitude
+    var lon = dados.coords.longitude
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
 
     localStorage.setItem('latitu', lat)
     localStorage.setItem('longitu', lon)
@@ -309,6 +342,7 @@ function initMap() {
         center: meulocal,
         disableDefaultUI: true,
     });
+<<<<<<< HEAD
 
     var customMarker = new google.maps.MarkerImage(
             // URL
@@ -324,6 +358,11 @@ function initMap() {
         position: meulocal,
         map: map,
         icon: customMarker,
+=======
+    var marker = new google.maps.Marker({
+        position: meulocal,
+        map: map,
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
         animation: google.maps.Animation.DROP
     });
 
@@ -345,9 +384,13 @@ function initMap() {
 // mapa tela seleção local
 function initAutoComplete() {
 
+<<<<<<< HEAD
     let directionsDisplay = new google.maps.DirectionsRenderer({
         suppressMarkers: true
     });
+=======
+    let directionsDisplay = new google.maps.DirectionsRenderer();
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
     let directionsService = new google.maps.DirectionsService();
 
     var lat = parseFloat(localStorage.getItem('latitu'));
@@ -361,6 +404,7 @@ function initAutoComplete() {
         disableDefaultUI: true,
         gestureHandling: "greedy"
     });
+<<<<<<< HEAD
     var customMarker = new google.maps.MarkerImage(
         // URL
         'img/clientMarker2.png',
@@ -375,6 +419,11 @@ function initAutoComplete() {
         position: meulocal,
         map: map,
         icon: customMarker
+=======
+    var marker = new google.maps.Marker({
+        position: meulocal,
+        map: map,
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
     });
 
     const input = document.getElementById("destino-input");
@@ -413,6 +462,7 @@ function initAutoComplete() {
         });
         var destinolocal = places[0].formatted_address;
 
+<<<<<<< HEAD
         var icons = {
             end: new google.maps.MarkerImage(
                 // URL
@@ -445,6 +495,8 @@ function initAutoComplete() {
             });
         }
 
+=======
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
         if (marker) marker.setMap(null);
 
         directionsDisplay.setMap(map);
@@ -459,10 +511,13 @@ function initAutoComplete() {
                 directionsDisplay.setDirections(response);
                 $('.loadIcon').hide();
 
+<<<<<<< HEAD
                 var leg = response.routes[0].legs[0];
                 makeMarker(leg.start_location, icons.start, "title");
                 makeMarker(leg.end_location, icons.end, 'title');
 
+=======
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
                 // calculo do preço
                 let t = response.routes[0].legs[0].duration.value
                 let km = response.routes[0].legs[0].distance.value
@@ -549,7 +604,11 @@ function raceConfirmInfo() {
 }
 
 $(document).ready(function () {
+<<<<<<< HEAD
     $('#btnCancelpreRace,#btnLoadingCancelRace,#btnCancelRace').click(() => {
+=======
+    $('#btnCancelpreRace,#btnLoadingCancelRace').click(() => {
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
         $.ajax({
             type: "POST",
             crossDomain: true,
@@ -579,7 +638,11 @@ $(document).ready(function () {
             type: "POST",
             crossDomain: true,
             cache: false,
+<<<<<<< HEAD
             url: "http://127.0.0.1/Muv/www/php/finalizarPedcorrida.php",
+=======
+            url: "http://127.0.0.1/Muv/www/php/corrida.php",
+>>>>>>> parent of 0a877c7 (Merge branch 'main' of https://github.com/lealalves/Muv)
             data: string,
             success: function (data) {
                 if ($.trim(data) == "success") {
