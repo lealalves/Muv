@@ -21,7 +21,8 @@
 
 <body class="grey">
     <div class="row driverfoundbg">
-        <div class="row driverdatabgheader" style="z-index: 1;">
+        
+        <div class="row driverdatabgheader" style="display:none;z-index: 1;">
             <div class="row">
                 <p id="txtEspec" style="color:#C5C5C5;font-size:12px">está chegando!</p>
             </div>
@@ -62,6 +63,14 @@
         <div class="row">
             <button id="btnCancelRace" class="btnDriver" style="width: auto;margin-bottom: 10px;">Cancelar</button>
         </div>
+    </div>
+    <div class="row driverfoundbg">
+        <div class="row driverdatabgheader" style="z-index: 1;">
+            
+        </div>
+
+        <div class="row driverdatabg">
+
 
     </div>
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
@@ -69,23 +78,41 @@
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk&callback=pickUpMap&v=weekly"
         async></script>
     <script>
+        markers = []
         function pickUpMap() {
+            const directionsRenderer = new google.maps.DirectionsRenderer({
+                suppressMarkers: true
+            });
+            const directionsService = new google.maps.DirectionsService();
+
             var lat = parseFloat(localStorage.getItem('latitu'));
             var lon = parseFloat(localStorage.getItem('longitu'));
 
             var clientLocal = { lat: lat, lng: lon };
 
-
-            const directionsRenderer = new google.maps.DirectionsRenderer({
-                suppressMarkers: true
-            });
-            const directionsService = new google.maps.DirectionsService();
+            
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 14,
                 center: clientLocal,
                 disableDefaultUI: true
             });
-
+            function makeMarker(position, icon, title) {
+                const marker = new google.maps.Marker({
+                    position: position,
+                    map: map,
+                    icon: icon,
+                    title: title
+                });
+                markers.push(marker)
+            }
+            function setMapOnAll(map) {
+                for (let i = 0; i < markers.length; i++) {
+                    markers[i].setMap(map);
+                }
+            }
+            function hideMarkers() {
+                setMapOnAll(null);
+            }
             var icons = {
                 start: new google.maps.MarkerImage(
                     // URL
@@ -110,13 +137,18 @@
             };
 
             $.getJSON('http://127.0.0.1/Muv/www/php/corridaConsulta.php', function (result) {
-                $('#txtDriverName').text(result.nome)
+                let endDestino = result.endDestino
+                let endOrigem = result.endOrigem
+                let driverName = result.nome
                 let driverLocal = result.driverLocal
+
+                $('#txtDriverName').text(driverName)
+                
                 directionsRenderer.setMap(map);
                 directionsService
                     .route({
                         origin: { placeId: driverLocal },
-                        destination: clientLocal,
+                        destination: endOrigem,
                         travelMode: google.maps.TravelMode.DRIVING,
                         // Note that Javascript allows us to access the constant
                         // using square brackets and a string value as its
@@ -131,15 +163,46 @@
                         $('#txtDriverTimeDistance').text(response.routes[0].legs[0].duration.text)
                     })
                     .catch((e) => window.alert("Directions request failed due to " + status));
+                setTimeout(function startRace() {
+                    $('.driverdatabgheader').hide()
+                    $('#btnCancelRace').hide()
+                    $('.driverdatabg').hide()
+                    
+
+                    directionsRenderer.setMap(map);
+                    directionsService
+                        .route({
+                            origin: endOrigem,
+                            destination: endDestino,
+                            travelMode: google.maps.TravelMode.DRIVING
+                            // Note that Javascript allows us to access the constant
+                            // using square brackets and a string value as its
+                            // "property."
+                        })
+                        .then((response) => {
+                            directionsRenderer.setDirections(response)
+                            $('#distanceFromFinish').text(response.routes[0].legs[0].distance.text)
+                            var leg = response.routes[0].legs[0];
+                            hideMarkers()
+                            markers = []
+                            makeMarker(leg.start_location, icons.start, "title");
+                            makeMarker(leg.end_location, icons.end, 'title');
+                            console.log(response)
+                            $('#startRace').click(() => {
+                                $('.startRace-container').hide()
+                                $('.route-container').show()
+
+                                $('#txtDestinoRota').text(endDestino)
+                                $('#txtStreetStep').html(response.routes[0].legs[0].steps[0].instructions)
+                                $('#txtDistanceFinishRoute').text(response.routes[0].legs[0].distance.text)
+                                $('#txtDistanceStep').text(response.routes[0].legs[0].steps[0].distance.text)
+
+                                console.log(response.routes[0].legs[0].steps[0])
+                            })
+                        })
+                }, 5000)
             })
-            function makeMarker(position, icon, title) {
-                new google.maps.Marker({
-                    position: position,
-                    map: map,
-                    icon: icon,
-                    title: title
-                });
-            }
+
         }
     </script>
 </body>
