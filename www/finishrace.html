@@ -89,18 +89,18 @@
                 </div>
                 <div class="row finishRaceStreet">
                     <div class="row">
-                        <p class="text-white" style="color:#B0B0B0;font-size:12px">
+                        <p id="txtOrigem" class="text-white" style="color:#B0B0B0;font-size:12px">
                             Proença Pesca e Camping - R. Meraldo Previde, 543 - Centro, Registro - SP, 11900-000, Brasil
                         </p>
                     </div>
                     <div class="row">
-                        <p class="text-white " style="font-size:12px">
+                        <p id="txtDestino" class="text-white " style="font-size:12px">
                             Centro, Registro - SP, 11900-000, Brasil                        
                         </p>
                     </div>
                 </div>
                 <div class="row finishRaceTotalTime">
-                    <p class="text-white" style="font-size:12px">10min</p>
+                    <p id="txtTempo" class="text-white" style="font-size:12px">10min</p>
                 </div>
             </div>
             <div class="row finishRacePayment" style="color: white;">
@@ -115,7 +115,7 @@
                     </div>
                 </div>
                 <div class="row finishRacePayPrice">
-                    <p class="text-white" style="font-size:32px">R$10.00</p>
+                    <p id="txtPreco" class="text-white" style="font-size:32px">R$10.00</p>
                 </div>
             </div>
             <div class="row finishRaceDriver">
@@ -127,7 +127,7 @@
                         <div class="col">
                             <div class="row vertical-align-center">
                                 <div class="col-30">
-                                    <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:15px">
+                                    <p id="txtDriverName" class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:15px">
                                         Mr. Driver
                                     </p>
                                 </div>
@@ -161,6 +161,19 @@
             </div>
         </div>
     </div>
+    <script>
+        $(document).ready(()=>{
+            $.getJSON('http://127.0.0.1/Muv/www/php/corridaConsulta.php', function (result) {
+                let endDestino = result.endDestino
+                let endOrigem = result.endOrigem
+                let driverName = result.nome
+                let driverLocal = result.driverLocal
+                let corridaTempo = result.tempo
+                let corridaPreco = result.preco
+            })
+        })
+        
+    </script>
 </body>
 
 </html>

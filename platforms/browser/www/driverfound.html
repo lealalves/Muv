@@ -21,7 +21,7 @@
 
 <body class="grey">
     <div class="row driverfoundbg">
-        
+
         <div class="row driverdatabgheader" style="display:none;z-index: 1;">
             <div class="row">
                 <p id="txtEspec" style="color:#C5C5C5;font-size:12px">está chegando!</p>
@@ -65,18 +65,18 @@
         </div>
         <div class="timerDiv" style="display:none;z-index: 1;margin-bottom: 2em;">
             <div class="row raceTimerHeader"></div>
-            <div class="row raceTimer">        
+            <div class="row raceTimer">
                 <div class="txtTime">
                     <p id="txtLastDuration" style="font-size: 30px;letter-spacing: 8px">09:45</p>
                 </div>
                 <div class="txtKm">
-                    <p id="txtLastKm" >9km</p>
+                    <p id="txtLastKm">9km</p>
                 </div>
             </div>
         </div>
 
     </div>
-    
+
     <script type="text/javascript" src="mobileui/mobileui.js"></script>
     <script
         src="https://maps.googleapis.com/maps/api/js?key=AIzaSyABnuQpgsqSITzefoNMys4iXmfgWlXqEfk&callback=pickUpMap&v=weekly"
@@ -94,7 +94,7 @@
 
             var clientLocal = { lat: lat, lng: lon };
 
-            
+
             const map = new google.maps.Map(document.getElementById("map"), {
                 zoom: 14,
                 center: clientLocal,
@@ -148,7 +148,7 @@
                 let driverLocal = result.driverLocal
 
                 $('#txtDriverName').text(driverName)
-                
+
                 directionsRenderer.setMap(map);
                 directionsService
                     .route({
@@ -166,50 +166,64 @@
                         makeMarker(leg.end_location, icons.end, 'title');
                         $('#txtDriverDistance').text(response.routes[0].legs[0].distance.text)
                         $('#txtDriverTimeDistance').text(response.routes[0].legs[0].duration.text)
+                        setTimeout(() => {
+                            directionsRenderer.setMap(map);
+                            directionsService
+                                .route({
+                                    origin: endOrigem,
+                                    destination: endDestino,
+                                    travelMode: google.maps.TravelMode.DRIVING
+                                    // Note that Javascript allows us to access the constant
+                                    // using square brackets and a string value as its
+                                    // "property."
+                                })
+                                .then((response) => {
+                                    directionsRenderer.setDirections(response)
+                                    var leg = response.routes[0].legs[0];
+                                    hideMarkers()
+                                    markers = []
+                                    makeMarker(leg.start_location, icons.start, "title");
+                                    makeMarker(leg.end_location, icons.end, 'title');
+
+                                    const checkStartRace = setInterval(() => {
+                                        $.getJSON('http://127.0.0.1/Muv/www/php/esperaCorridaIniciada.php', function (result) {
+                                            if (result === 'iniciada') {
+                                                clearInterval(checkStartRace)
+                                                console.log('corrida iniciada')
+                                                $('.driverdatabgheader').hide()
+                                                $('#btnCancelRace').hide()
+                                                $('.driverdatabg').hide()
+                                                $('.timerDiv').show()
+
+                                                $('#txtLastKm').text(response.routes[0].legs[0].distance.text)
+                                                let tempo = response.routes[0].legs[0].duration.value
+                                                let minutos = Math.floor(tempo / 60);
+                                                let segundos = tempo - minutos * 60;
+                                                var horas = Math.floor(tempo / 3600);
+                                                tempo = tempo - horas * 3600;
+                                                console.log(tempo)
+                                                console.log(horas)
+                                                console.log(minutos)
+                                                console.log(segundos)
+                                                $('#txtLastDuration').text(`${minutos} : ${segundos}`)
+
+                                                const checkFinishRace = setInterval(()=>{
+                                                    $.getJSON('http://127.0.0.1/Muv/www/php/esperaFinalizarCorrida.php', (result) => {
+                                                        if(result === 'finalizada'){
+                                                            clearInterval(checkFinishRace)
+                                                            console.log('corrida finalizada!')
+                                                            location.href = 'finishrace.html'
+                                                        }else console.log('corrida nao finalizada!')
+                                                    })
+                                                }, 1000)
+
+                                            } else console.log('corrida nao iniciada')
+                                        })
+                                    }, 1000);
+                                })
+                        }, 5000)
                     })
                     .catch((e) => window.alert("Directions request failed due to " + status));
-                setTimeout(function startRace() {
-                    $('.driverdatabgheader').hide()
-                    $('#btnCancelRace').hide()
-                    $('.driverdatabg').hide()
-                    $('.timerDiv').show()                 
-
-                    directionsRenderer.setMap(map);
-                    directionsService
-                        .route({
-                            origin: endOrigem,
-                            destination: endDestino,
-                            travelMode: google.maps.TravelMode.DRIVING
-                            // Note that Javascript allows us to access the constant
-                            // using square brackets and a string value as its
-                            // "property."
-                        })
-                        .then((response) => {
-                            directionsRenderer.setDirections(response)
-                            var leg = response.routes[0].legs[0];
-                            hideMarkers()
-                            markers = []
-                            makeMarker(leg.start_location, icons.start, "title");
-                            makeMarker(leg.end_location, icons.end, 'title');
-                            $('#txtLastKm').text(response.routes[0].legs[0].distance.text)
-
-                            let tempo = response.routes[0].legs[0].duration.value
-                            let minutos = Math.floor(tempo / 60);
-                            let segundos = tempo - minutos * 60;
-                            var horas = Math.floor(tempo / 3600);
-                            tempo = tempo - horas * 3600;
-                            console.log(tempo)
-                            console.log(horas)
-                            console.log(minutos)
-                            console.log(segundos)                            
-                            $('#txtLastDuration').text(`${minutos} : ${segundos}`)
-
-                            setTimeout(()=>{
-                                location.href = 'finishrace.html'
-                            },5000)
-                        
-                        })
-                }, 5000)
             })
 
         }
