@@ -974,6 +974,14 @@ input:checked+.slider:before {
     background: #FFFFFF;
     border-radius: 10px;
 }
+
+
+
+
+
+
+
+/* tela corrida finalizada  */
 .driverfoundbg{
     height: 100%;
     align-items: center;
@@ -1039,29 +1047,80 @@ input:checked+.slider:before {
 .chatIcon{
     margin-top: -20px;
 }
+.headerfinishrace{
+    flex-direction: column;
+    margin: 0 auto;
+    margin-bottom: 2em;
+}
+.headerfinishrace .row{
+    justify-content: center;
+}
 .finishracebg{
     background: #222222;
     box-shadow: 0px -8px 10px rgba(0, 0, 0, 0.25);
     border-radius: 15px 15px 0px 0px;
     width: 100vw;
     height: 100vh;
+    flex-direction: column;
     transform: translateY(110%);
     animation: localconfirmaparecer .5s forwards;
 }
-
+.finishRaceTime{
+    flex-direction: column;
+    align-items: center;
+}
+.finishRaceTime .row{
+    align-items: center;
+}
+.finishRaceTime .date .row{
+    padding: 2px;
+}
+.finishRaceStreet{
+    width: 70%;
+    flex-direction: column;
+}
+.finishRaceStreet .row{
+    align-items: center;
+    padding: 2px;
+}
+.finishRaceTotalTime{
+    height: 80%;
+    justify-content: flex-end;
+    align-items: flex-end;
+}
+.finishRacePayment{
+    width: auto;
+    align-items: center;
+    justify-content: space-around;
+    margin-bottom: 2em;
+}
+.finishRacePayMeth{
+    align-items: center;
+}
+.finishRacePayPrice{
+    width: auto;
+}
 .raceimg {
     margin-top: 50px;
 }
-
-.racedata {
-    background: rgba(60, 60, 60, 0.72);
-    margin: auto;
-    margin-bottom: 10px;
+.finishRaceData {
     border-radius: 10px;
     width: 300px;
+    margin: 0 auto;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 2em;
+}
+.finishRaceDriver{
+    width: 80%;
+    padding: 8px;
+    margin: 0 auto;
+    background-color: #262D3C;
+    border-radius: 10px;
 }
 
 .btnfinishrace {
+    color: white;
     width: 70px;
     background: #063DFF;
     box-shadow: 0px 10px 40px rgba(11, 152, 255, 0.25);

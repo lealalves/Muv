@@ -25,9 +25,11 @@
     <meta charset="utf-8" />
     <meta name="format-detection" content="telephone=no" />
     <meta name="msapplication-tap-highlight" content="no" />
-    <meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
+    <meta name="viewport"
+        content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, width=device-width" />
     <!-- This is a wide open CSP declaration. To lock this down for production, see below. -->
-    <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
+    <meta http-equiv="Content-Security-Policy"
+        content="default-src * 'unsafe-inline' gap:; style-src 'self' 'unsafe-inline'; media-src *" />
     <!-- Good default declaration:
     * gap: is required only on iOS (when using UIWebView) and is needed for JS->native communication
     * https://ssl.gstatic.com is required only on Android and is needed for TalkBack to function properly
@@ -37,8 +39,8 @@
     * Create your own at http://cspisawesome.com
     -->
     <!-- <meta http-equiv="Content-Security-Policy" content="default-src 'self' data: gap: 'unsafe-inline' https://ssl.gstatic.com; style-src 'self' 'unsafe-inline'; media-src *" /> -->
-    <link rel="stylesheet" type="text/css" href="mobileui/style.css"/>
-    <link rel="stylesheet" type="text/css" href="css/index.css"/>
+    <link rel="stylesheet" type="text/css" href="mobileui/style.css" />
+    <link rel="stylesheet" type="text/css" href="css/index.css" />
     <link rel="stylesheet" type="text/css" href="css/all.css">
     <script src="js/jquery.js"></script>
     <script src="mobileui/mobileui.js"></script>
@@ -48,100 +50,75 @@
 </head>
 
 <body class="bgmap">
-    <div class="page content">       
-        <div class="col finishracebg padding" style="background-color: #0D1016;">
-            <div class="row">
-                <div class="col align-center raceimg">
-                <img src="img/iconrace.png">
+    <div class="page content">
+        <div class="row finishracebg" style="background-color: #0D1016;">
+            <div class="row headerfinishrace">
+                <div class="row raceimg">
+                    <img src="img/iconrace.png">
                 </div>
-            </div>  
-            <div class="row horizontal-align-center text-white">
-                <h1 class="col-33 align-center" style="margin-bottom:30px;margin-top:15px;font-family: 'Open Sans', sans-serif;font-size:25px">
-                    Finalizou!
-                </h1>
-            </div>            
-            <div class="row racedata padding">
-                <div class="col" style="background-color: #0D1016;">
-                    <div class="row">
-                        <div class="col-10">
-                            <div class="row">
-                                <p class="text-white" style="color:#B0B0B0;font-family: 'Open Sans', sans-serif;font-size:10px">
-                                    9:10am
-                                </p>
-                            </div>                            
-                        </div>
-                        <div class="col-10">
-                            <div class="row horizontal-align-center">
-                                <div style="margin-top: 8px;width: 8px;height: 8px;border-radius: 4px;background-color: #B0B0B0;"></div>
-                            </div>                            
-                        </div>
-                        <div class="col-30">
-                            <div class="row">
-                                <p style="color:#B0B0B0;font-family: 'Open Sans', sans-serif;font-size:12px">
-                                    St. Location Example
-                                </p>
-                            </div>                            
-                        </div>
-                        <div class="col">
-                            <div class="row horizontal-align-right">
-                               <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:10px">
-                                Distance: 14km
-                                </p> 
-                            </div>                            
-                        </div> 
-                        
-                    </div>
-                    <div class="row txttest">
-                        <p style="font-size:20px">.....</p>
-                    </div>
-                    <div class="row" style="margin-top: 20px;">
-                        <div class="col-10">
-                            <div class="row">
-                                <p style="color:#22FFAF;font-family: 'Open Sans', sans-serif;font-size:10px">
-                                9:21am
-                                </p>
-                            </div>                            
-                        </div>
-                        <div class="col-10">
-                            <div class="row horizontal-align-center">
-                                <div style="margin-top: 8px;width: 8px;height: 8px;border-radius: 4px;background-color: #22FFAF;"></div>
-                            </div>                            
-                        </div>
-                        <div class="col-30">
-                            <div class="row">
-                                <p class="text-white " style="font-family: 'Open Sans', sans-serif;font-size:12px">
-                                    St. Destiny Example
-                                </p>
-                            </div>                            
-                        </div>
-                        <div class="col">
-                            <div class="row horizontal-align-right">
-                               <p class="text-white" style="font-family: 'Open Sans', sans-serif;font-size:10px">
-                                10min
-                                </p> 
-                            </div>                            
-                        </div>
-                    </div>
-                    <div class="row vertical-align-center">                    
-                        <div class="col-10">
-                            <div class="row">
-                                <img src="img/iconcreditcard.png">
-                            </div>                        
-                        </div>
-                        <div class="col">
-                            <p class="text-white" style="margin-left:5px;font-family: 'Open Sans', sans-serif;font-size:14px">
-                                245*****14
-                            </p>
-                        </div>
-                        <div class="col">
-                            <p class="text-white" style="margin-left:50px;font-family: 'Open Sans', sans-serif;font-size:30px">
-                                R$10.00
-                            </p>
-                        </div>
-                    </div>                    
-                </div>                                
+                <div class="row">
+                    <h1 style="color:white;font-size:25px">
+                        Finalizou!
+                    </h1>
+                </div>
             </div>
-            <div class="row racedata padding">
+            <div class="row finishRaceData">
+                <div class="row finishRaceTime">
+                    <div class="row date">
+                        <div class="row">
+                            <p class="text-white" style="color:#B0B0B0;font-size:10px">9:10am</p>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-circle fa-xs" style="color:#B0B0B0;"></i>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <i style="color:#B0B0B0;margin-left: 38px;" class="fas fa-ellipsis-v fa-lg"></i>
+                    </div>
+                    <div class="row">
+                        <i style="color:#B0B0B0;margin-left: 38px;" class="fas fa-ellipsis-v fa-lg"></i>
+                    </div>
+                    <div class="row date">
+                        <div class="row">
+                            <p class="text-white" style="color:#22FFAF;font-size:10px">9:21am</p>
+                        </div>
+                        <div class="row">
+                            <i class="fas fa-circle fa-xs" style="color:#22FFAF;"></i>
+                        </div>
+                    </div>
+                </div>
+                <div class="row finishRaceStreet">
+                    <div class="row">
+                        <p class="text-white" style="color:#B0B0B0;font-size:12px">
+                            Proença Pesca e Camping - R. Meraldo Previde, 543 - Centro, Registro - SP, 11900-000, Brasil
+                        </p>
+                    </div>
+                    <div class="row">
+                        <p class="text-white " style="font-size:12px">
+                            Centro, Registro - SP, 11900-000, Brasil                        
+                        </p>
+                    </div>
+                </div>
+                <div class="row finishRaceTotalTime">
+                    <p class="text-white" style="font-size:12px">10min</p>
+                </div>
+            </div>
+            <div class="row finishRacePayment" style="color: white;">
+                <div class="row finishRacePayMeth">
+                    <div class="row">
+                        <img
+                            src=
+"https://img.icons8.com/external-kiranshastry-lineal-color-kiranshastry/32/000000/external-credit-card-finance-kiranshastry-lineal-color-kiranshastry-1.png" />
+                    </div>
+                    <div class="row">
+                        <p class="text-white" style="font-size:12px">245*****14</p>
+                    </div>
+                </div>
+                <div class="row finishRacePayPrice">
+                    <p class="text-white" style="font-size:32px">R$10.00</p>
+                </div>
+            </div>
+            <div class="row finishRaceDriver">
                 <div class="col">
                     <div class="row vertical-align-center">                    
                         <div class="col-20" style="margin-left: 20px;margin-right:15px">
@@ -177,11 +154,11 @@
                             </div>                            
                         </div>
                     </div>                    
-                </div>                               
+                </div>
             </div>
             <div class="row horizontal-align-center" style="margin-top: 50px;">
-                <button class="blue btnfinishrace" onclick="window.location.href = 'inapp.html'">OK</button>
-            </div>                                                         
+                <button class="btnfinishrace" onclick="window.location.href = 'inapp.html'">OK</button>
+            </div>
         </div>
     </div>
 </body>
