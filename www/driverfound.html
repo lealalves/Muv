@@ -192,9 +192,24 @@
                             makeMarker(leg.start_location, icons.start, "title");
                             makeMarker(leg.end_location, icons.end, 'title');
                             $('#txtLastKm').text(response.routes[0].legs[0].distance.text)
-                            $('#txtLastDuration').text(response.routes[0].legs[0].duration.value)
+
+                            let tempo = response.routes[0].legs[0].duration.value
+                            let minutos = Math.floor(tempo / 60);
+                            let segundos = tempo - minutos * 60;
+                            var horas = Math.floor(tempo / 3600);
+                            tempo = tempo - horas * 3600;
+                            console.log(tempo)
+                            console.log(horas)
+                            console.log(minutos)
+                            console.log(segundos)                            
+                            $('#txtLastDuration').text(`${minutos} : ${segundos}`)
+
+                            setTimeout(()=>{
+                                location.href = 'finishrace.html'
+                            },5000)
+                        
                         })
-                }, 500)
+                }, 5000)
             })
 
         }
