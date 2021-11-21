@@ -90,12 +90,10 @@
                 <div class="row finishRaceStreet">
                     <div class="row">
                         <p id="txtOrigem" class="text-white" style="color:#B0B0B0;font-size:12px">
-                            Proença Pesca e Camping - R. Meraldo Previde, 543 - Centro, Registro - SP, 11900-000, Brasil
                         </p>
                     </div>
                     <div class="row">
-                        <p id="txtDestino" class="text-white " style="font-size:12px">
-                            Centro, Registro - SP, 11900-000, Brasil                        
+                        <p id="txtDestino" class="text-white " style="font-size:12px">                      
                         </p>
                     </div>
                 </div>
@@ -115,7 +113,7 @@
                     </div>
                 </div>
                 <div class="row finishRacePayPrice">
-                    <p id="txtPreco" class="text-white" style="font-size:32px">R$10.00</p>
+                    <p id="txtPreco" class="text-white" style="font-size:32px"></p>
                 </div>
             </div>
             <div class="row finishRaceDriver">
@@ -164,12 +162,19 @@
     <script>
         $(document).ready(()=>{
             $.getJSON('http://127.0.0.1/Muv/www/php/corridaConsulta.php', function (result) {
+                console.log(result)
                 let endDestino = result.endDestino
                 let endOrigem = result.endOrigem
                 let driverName = result.nome
-                let driverLocal = result.driverLocal
                 let corridaTempo = result.tempo
                 let corridaPreco = result.preco
+
+                $('#txtOrigem').text(endOrigem)
+                $('#txtDestino').text(endDestino)
+                $('#txtDriverName').text(driverName)
+                $('#txtPreco').text(corridaPreco)
+                $('#txtTempo').text(corridaTempo)
+
             })
         })
         

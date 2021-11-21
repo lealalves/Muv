@@ -1087,6 +1087,7 @@ input:checked+.slider:before {
     height: 80%;
     justify-content: flex-end;
     align-items: flex-end;
+    text-align: center;
 }
 .finishRacePayment{
     width: auto;
