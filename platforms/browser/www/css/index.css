@@ -1328,7 +1328,14 @@ input[type=radio] {
     width: 100%;
 }
 
-
+.historicStreetInput{
+    border: none;
+    background-color: transparent;
+    color: white;
+    padding: 5px;
+    width: 10em;
+    text-overflow: ellipsis
+}
 
 
 
