@@ -1146,7 +1146,19 @@ input:checked+.slider:before {
 
 
 /* tela historico/chat */
-
+.noHistoric{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: #35415a;
+    width: 80%;
+    padding: 5px;
+    border-radius: 10px;
+    color: white;
+}
+.noHistoric p{
+    display: inline-block;
+}
 #chat:checked~#historico,
 #historico:checked~#chat {
     display: none;
